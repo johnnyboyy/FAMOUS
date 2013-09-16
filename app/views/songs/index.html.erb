@@ -1,0 +1,20 @@
+<h1> Songs </h1>
+
+<%= link_to 'New Song', new_song_path %>
+
+
+<% @songs.each do |s| %>
+	<h4><%= s.title %></h4>
+	<h5><%= s.artist %> </h4>
+	<%= link_to 'Remove', s, method: :delete, confirm: "are you sure?" %>
+
+<% end %>
+
+
+
+
+<div class="testing_audio_tag">
+	<audio src="reidspeed.mp3" controls>
+		<p>If you are reading this, it is because your browser does not support the audio element.</p>
+	</audio>
+</div>

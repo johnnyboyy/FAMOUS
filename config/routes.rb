@@ -1,5 +1,5 @@
 FAMOUS::Application.routes.draw do
-  resources :songs
+  resources :songs, only: [:index, :create, :destroy, :new]
 
 
 

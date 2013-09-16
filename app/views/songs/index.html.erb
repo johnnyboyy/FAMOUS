@@ -6,6 +6,11 @@
 <% @songs.each do |s| %>
 	<h4><%= s.title %></h4>
 	<h5><%= s.artist %> </h4>
+	<div class="testing_audio_tag">
+		<audio src="<%=s.mp3_file.url%>" controls>
+			<p>If you are reading this, it is because your browser does not support the audio element.</p>
+		</audio>
+	</div>
 	<%= link_to 'Remove', s, method: :delete, confirm: "are you sure?" %>
 
 <% end %>

@@ -11,13 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130914220342) do
+ActiveRecord::Schema.define(version: 20130916174140) do
 
   create_table "songs", force: true do |t|
     t.string   "title"
     t.string   "artist"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "mp3_file_file_name"
+    t.string   "mp3_file_content_type"
+    t.integer  "mp3_file_file_size"
+    t.datetime "mp3_file_updated_at"
   end
 
 end

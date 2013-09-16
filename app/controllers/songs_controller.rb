@@ -22,7 +22,7 @@ class SongsController < ApplicationController
 		@song = Song.find(params[:id])
 		@song.destroy
 
-		redirect_to songs_path
+		redirect_to songs_path, notice: "Succesfully removed song"
 	end
 
 

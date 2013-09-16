@@ -1,4 +1,20 @@
+<%= params %>
+
 <%= form_for(@song) do |f| %>
+
+  <% if @song.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@song.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% @song.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    
+
 
   <div class="field">
     <%= f.label :title %><br>
@@ -13,7 +29,7 @@
     <%=f.file_field :mp3_file %>
   </div>
 
-  
+
   <div class="actions">
     <%= f.submit %>
   </div>

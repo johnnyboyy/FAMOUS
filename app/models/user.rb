@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+	has_many :songs
 	has_one :band
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,

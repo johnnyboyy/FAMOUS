@@ -1,9 +1,11 @@
 class Song < ActiveRecord::Base
 
+	belongs_to :user
+	belongs_to :band
 	has_attached_file :mp3_file	, :default_url => "/blank.mp3"
 
-	validates :title, :artist, presence: true
 
+	validates :title, :artist, presence: true
 	validates_attachment :mp3_file, :presence => true,
   :content_type => { :content_type => ["audio/mp3", "audio/x-m4a"] }
 end

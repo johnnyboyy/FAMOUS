@@ -1,0 +1,37 @@
+  
+
+<div class="navbar metro" id="nav1">
+ <!-- Toggle for mobile navigation, targeting the <ul> -->
+  <a class="toggle" gumby-trigger="#nav1 > .target > ul" href="#"><i class="icon-menu"></i></a>
+  <div class="target">
+    <h2 class="four columns logo">
+      <%= link_to "FAMOUS", songs_path %>
+    </h2>
+    <ul id="nav_float_right">
+      <% if user_signed_in? %>
+         
+        <li>
+          <a href="#"><i class="icon-cog" id="nav_font"> </i></a>
+          <div id="dropdown_width" class="dropdown">
+            <ul id="dropdown_width">         
+              <li><%= link_to "Edit Account", edit_user_registration_path %>
+              </li>
+              <li><%= link_to "Log out", destroy_user_session_path(user_session), method: :delete %>
+            </ul>
+          </div>
+        </li>
+
+        <li>
+          <%= link_to current_user.email, user_path(current_user), id: "nav_font" %>
+        </li>
+
+      <% else %>
+
+       <li><%= link_to "Sign up", new_user_registration_path %></li>
+       <li><%= link_to "Sign in", new_user_session_path %></li>
+
+      <% end %>
+      <li></li>
+    </ul>
+  </div>
+</div>

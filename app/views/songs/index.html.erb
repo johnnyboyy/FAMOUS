@@ -2,7 +2,8 @@
 <div class="four columns">
 	<h1> Songs </h1>
 	<% if user_signed_in? %>
-		<%= link_to 'New Song', new_song_path %>
+		<%= link_to 'New Song', new_song_path %><br />
+		<%= link_to 'New Band', new_band_path %>
 	<% end %>
 </div>
 

@@ -17,37 +17,20 @@
  * Date: 19th November 2012
  */
 
-
-.songlist {
-	list-style: none;
-}
-
 ul {
-	.player_box {
-		width: 900px;
-		height: 120px;
-		background: rgba(19,19,19, 0.6);
-		color: rgba(240,240,240, 1);
-		border-radius: 4px;
-		padding-top: 30px;
-
+	li {
 		audio {
-			width: 800px;
-			margin-left: 40px;
-			margin-top: 20px;
+			margin-top: 30px;
+			margin-left: 10px;
+			width: 400px;
 		}
 
-		h4 {
-			clear: right;
-			margin: 3px;
-			margin-left: 5px;
-			padding: 2px;
-		}
-
-		h5 {
-			clear: right;
-			margin: 3px;
-			margin-left: 15px;
+		div {
+			div {
+				a{
+					margin-left: 30px;
+				}
+			}
 		}
 	}
 }

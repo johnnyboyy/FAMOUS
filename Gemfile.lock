@@ -58,6 +58,9 @@ GEM
     diff-lcs (1.2.4)
     erubis (2.7.0)
     execjs (2.0.1)
+    gumby-framework (0.0.1)
+      jquery-rails
+      modernizr-rails
     hike (1.2.3)
     i18n (0.6.5)
     jbuilder (1.5.1)
@@ -72,6 +75,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.25)
     minitest (4.7.5)
+    modernizr-rails (2.6.2.3)
     multi_json (1.8.0)
     orm_adapter (0.4.0)
     polyglot (0.3.3)
@@ -145,8 +149,10 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
+  gumby-framework
   jbuilder (~> 1.2)
   jquery-rails
+  modernizr-rails
   paperclip!
   rails (= 4.0.0)
   rspec-rails

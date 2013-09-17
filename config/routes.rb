@@ -2,7 +2,7 @@ FAMOUS::Application.routes.draw do
   devise_for :users
   resources :songs, only: [:index, :create, :destroy, :new]
 
-  root to: "songs#index"
+  root to: "songs#demo"
 
 
 

@@ -2,21 +2,47 @@
 <html>
 <head>
   <title>FAMOUS</title>
+  
+  <%= javascript_include_tag :modernizr %>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+
+  
 </head>
 <body>
 
-<% if flash[:notice] %>
-	<p id="notice"><%= flash[:notice] %></p>
-<% end %>
+  <div class="navbar metro" id="nav1">
+   <!-- Toggle for mobile navigation, targeting the <ul> -->
+   <a class="toggle" gumby-trigger="#nav1 > .row > ul" href="#"><i class="icon-menu"></i></a>
+   <h2 class="four columns logo">
+     <%= link_to "FAMOUS", songs_path %>
+   </h2>
+   <ul class="eight columns">
+     <li><%= link_to "Sign up", new_user_registration_path %></li>
+     <li><%= link_to "Sign in", new_user_session_path %></li>
+ 		 <li><%= link_to "Edit Account", edit_user_registration_path %></li>
+     <li>
+       <a href="#">Dropdown</a>
+       <div class="dropdown">
+         <ul>
+           <li></li>
+         </ul>
+       </div>
+     </li>
+     <li></li>
+   </ul>
+  </div>
 
-<% if flash[:alert] %>
-	<p id="alert"><%= flash[:alert] %></p>
-<% end %>
+	<% if flash[:notice] %>
+		<p id="notice"><%= flash[:notice] %></p>
+	<% end %>
 
-<%= yield %>
+	<% if flash[:alert] %>
+		<p id="alert"><%= flash[:alert] %></p>
+	<% end %>
+
+	<%= yield %>
 
 </body>
 </html>

@@ -1,18 +1,39 @@
-<h2>Sign up</h2>
+
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+   <div class="row">
+      <fieldset class="eight columns">
+        <legend><h3>Sign Up</h3></legend>
+        <ul>
+            <ul>
+              <li class="field">
+              	<%= f.label :email %>
+  							<%= f.email_field :email, :autofocus => true, class: "xxwide input" %>
+              </li>
+              <li class="field">
+	              <%= f.label :password %>
+	 							<%= f.password_field :password, class: "xwide input" %>
+              </li>
+              <li class="field">
+                <%= f.label :password_confirmation %>
+                <%= f.password_field :password_confirmation, class: "xwide input" %>
+              </li>
+              <li class="medium secondary btn">
+                <%= f.submit 'Sign Up!' %>
+              </li>
+            </ul>
+            <li> 
+							<%= render "devise/shared/links" %>
+						</li>
+        </ul>
+      </fieldset>
+  </div>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
-
-  <div><%= f.submit "Sign up" %></div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+
+
+

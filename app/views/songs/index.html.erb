@@ -1,24 +1,27 @@
-<h1> Songs </h1>
 
-<%= link_to 'New Song', new_song_path %>
+<div class="four columns">
+	<h1> Songs </h1>
+	<% if user_signed_in? %>
+		<%= link_to 'New Song', new_song_path %>
+	<% end %>
+</div>
 
 <ul class="songlist">
 <% @songs.each do |s| %>
 	<li>
 
 	  <div class="row">
-	    <div class="four columns">
+	    <div class="four columns" id="song_info">
 				<h4><%= s.title %></h4>
 				<h5>By: <%= s.artist %> </h5>
 	    </div>
-	    <div class="push_three five columns">
+	    <div class="push_two five columns">
 				<audio src="<%=s.mp3_file.url%>" controls>
 					<p>If you are reading this, it is because your browser does not support the audio element.</p>
 				</audio>
 				
 				<%= link_to 'Remove', s, method: :delete, confirm: "are you sure?" %>
 	    </div>
-
 	  </div>
 
 	 </li>

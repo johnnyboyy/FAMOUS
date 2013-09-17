@@ -5,5 +5,5 @@ class Song < ActiveRecord::Base
 	validates :title, :artist, presence: true
 
 	validates_attachment :mp3_file, :presence => true,
-  :content_type => { :content_type => ["image/jpg", "audio/x-m4a"] }
+  :content_type => { :content_type => ["audio/mp3", "audio/x-m4a"] }
 end

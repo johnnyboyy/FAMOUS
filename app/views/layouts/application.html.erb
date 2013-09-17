@@ -2,9 +2,8 @@
 <html>
 <head>
   <title>FAMOUS</title>
-  
-  <%= javascript_include_tag :modernizr %>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "modernizr" %>
+  <%= stylesheet_link_tag "application", :media => "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 
@@ -14,25 +13,36 @@
 
   <div class="navbar metro" id="nav1">
    <!-- Toggle for mobile navigation, targeting the <ul> -->
-   <a class="toggle" gumby-trigger="#nav1 > .row > ul" href="#"><i class="icon-menu"></i></a>
-   <h2 class="four columns logo">
-     <%= link_to "FAMOUS", songs_path %>
-   </h2>
-   <ul class="eight columns">
-     <li><%= link_to "Sign up", new_user_registration_path %></li>
-     <li><%= link_to "Sign in", new_user_session_path %></li>
- 		 <li><%= link_to "Edit Account", edit_user_registration_path %></li>
-     <li>
-       <a href="#">Dropdown</a>
-       <div class="dropdown">
-         <ul>
-           <li></li>
-         </ul>
-       </div>
-     </li>
-     <li></li>
-   </ul>
-  </div>
+   <a class="toggle" gumby-trigger="#nav1 > .target > ul" href="#"><i class="icon-menu"></i></a>
+    <div class="target">
+     <h2 class="four columns logo">
+       <%= link_to "FAMOUS", songs_path %>
+     </h2>
+       <ul id="nav_float_right">
+         <li>
+        <% if user_signed_in? %>
+
+           <a href="#"><i class="icon-cog" id="nav_font"> </i><%= current_user.email %></a>
+           <div id="dropdown_width" class="dropdown">
+             <ul id="dropdown_width">         
+               <li><%= link_to "Edit Account", edit_user_registration_path %>
+               </li>
+               <li><%= link_to "Log out", destroy_user_session_path(user_session), method: :delete %>
+               </li>
+             </ul>
+           </div>
+
+        <% else %>
+
+         <li><%= link_to "Sign up", new_user_registration_path %></li>
+         <li><%= link_to "Sign in", new_user_session_path %></li>
+
+        <% end %>
+         </li>
+         <li></li>
+       </ul>
+      </div>
+    </div>
 
 	<% if flash[:notice] %>
 		<p id="notice"><%= flash[:notice] %></p>

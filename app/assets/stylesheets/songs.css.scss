@@ -1,24 +1,19 @@
 // Place all the styles related to the songs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-/*
- * Skin for jPlayer Plugin (jQuery JavaScript Library)
- * http://www.jplayer.org
- *
- * Skin Name: Blue Monday
- *
- * Copyright (c) 2010-2012 Happyworm Ltd
- * Dual licensed under the MIT and GPL licenses.
- *  - http://www.opensource.org/licenses/mit-license.php
- *  - http://www.gnu.org/copyleft/gpl.html
- *
- * Author: Silvia Benvenuti
- * Skin Version: 4.3 (jPlayer 2.2.0)
- * Date: 19th November 2012
- */
 
-ul {
+
+ul.songlist {
 	li {
+
+		div.row{
+			height: 100px;
+
+			#song_info {
+				margin-left: 10px;
+			}
+		}
+
 		audio {
 			margin-top: 30px;
 			margin-left: 10px;
@@ -27,7 +22,7 @@ ul {
 
 		div {
 			div {
-				a{
+				a {
 					margin-left: 30px;
 				}
 			}

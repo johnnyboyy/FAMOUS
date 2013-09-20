@@ -5,7 +5,7 @@
   <a class="toggle" gumby-trigger="#nav1 > .target > ul" href="#"><i class="icon-menu"></i></a>
   <div class="target">
     <h2 class="four columns logo">
-      <%= link_to "FAMOUS", songs_path %>
+      <%= link_to "FAMOUS", :root %>
     </h2>
     <ul id="nav_float_right">
       <% if user_signed_in? %>
@@ -22,7 +22,7 @@
         </li>
 
         <li>
-          <%= link_to current_user.email, user_path(current_user), id: "nav_font" %>
+          <%= link_to current_user.email, user_path(current_user) %>
         </li>
 
       <% else %>

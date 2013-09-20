@@ -1,0 +1,14 @@
+
+<div class="row" id="list_row">
+	<div class="twelve columns" id="song_info">
+		<% @bands.each do |b| %>
+			<div id="content_holder">
+				<h4><%= b.name %></h4>
+					<%= link_to 'Remove', b, method: :delete, confirm: "are you sure?" %><br />
+
+					<%= link_to "Band Page", b %>
+				</div>
+		<% end %>
+	</div>
+</div>
+

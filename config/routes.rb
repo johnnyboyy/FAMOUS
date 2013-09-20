@@ -1,8 +1,14 @@
 FAMOUS::Application.routes.draw do
   devise_for :users
-  resources :songs, only: [:index, :create, :destroy, :new]
+  resources :songs, only: [:index]
   resources :users, only: [:show]
-  resources :bands, only: [:index, :create, :new, :show]
+  resources :bands do
+    resources :songs, only: [:index, :new, :create, :show, :destroy]
+    member do
+      post 'join'
+    end
+  end
+  resources :main, only: [:index]
 
   root to: "main#index"
 

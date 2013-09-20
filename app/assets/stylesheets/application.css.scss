@@ -32,3 +32,35 @@ div#dropdown_width.dropdown {
 		max-width: 195px;
 	}
 }
+
+.odd {
+	background: rgba(28, 100, 240, 0.3);
+}
+.even {
+	background: rgba(240, 100, 28, 0.3);
+}
+
+
+div#list_row {
+
+
+	#content_holder {
+		padding-bottom: 20px;
+		border-bottom: 1px solid black;
+		min-height: 100px;
+
+		.track_info {
+			width: 300px;
+			word-wrap: break-word;
+			float: left;
+		}
+
+		.title{
+		}
+
+		.artist {
+			margin-left: 20px;
+		}
+	}
+}
+

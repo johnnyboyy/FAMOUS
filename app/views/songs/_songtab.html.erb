@@ -1,0 +1,17 @@
+
+<div class="row" id="list_row">
+	<div class="twelve columns">
+		<% @songs.each do |s| %>
+			<div id="content_holder">
+
+
+				<div class="track_info">
+					<h4 class="title"><%= s.title %></h4>
+				</div>
+				<audio class="song_player" src="<%=s.mp3_file.url%>" controls>
+					<p>If you are reading this, it is because your browser does not support the audio element.</p>
+				</audio>
+			</div>
+		<% end %>
+	</div>
+</div>

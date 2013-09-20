@@ -10,7 +10,8 @@ class BandsController < ApplicationController
 	
 	  def show
 	  	@band = Band.find(params[:id])
-	
+			@members = @band.users
+
 	    respond_to do |format|
 	      format.html # show.html.erb
 	      format.json { render json: @band }
@@ -32,6 +33,7 @@ class BandsController < ApplicationController
 	
 	  def create
 	  	@band = Band.new(band_params)
+	  	@user = current_user
 	
 	    respond_to do |format|
 	      if @band.save
@@ -56,6 +58,12 @@ class BandsController < ApplicationController
 	        format.json { render json: @band.errors, status: :unprocessable_entity }
 	      end
 	    end
+	  end
+
+	  def join
+	  	@band = Band.find(params[:id])
+	  	@band.users << current_user
+	  	redirect_to @band
 	  end
 	
 	  def destroy

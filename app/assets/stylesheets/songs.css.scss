@@ -3,29 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-ul.songlist {
-	li {
-
-		div.row{
-			height: 100px;
-
-			#song_info {
-				margin-left: 10px;
-			}
-		}
-
-		audio {
-			margin-top: 30px;
-			margin-left: 10px;
-			width: 400px;
-		}
-
-		div {
-			div {
-				a {
-					margin-left: 30px;
-				}
-			}
-		}
-	}
+audio.song_player{
+	float: right;
+	margin-top: 35px;
 }

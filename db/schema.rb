@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130919232629) do
+ActiveRecord::Schema.define(version: 20130920010053) do
 
   create_table "bands", force: true do |t|
     t.string   "name"
@@ -29,8 +29,17 @@ ActiveRecord::Schema.define(version: 20130919232629) do
     t.datetime "updated_at"
   end
 
-# Could not dump table "songs" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "songs", force: true do |t|
+    t.string   "title"
+    t.string   "artist"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "mp3_file_file_name"
+    t.string   "mp3_file_content_type"
+    t.integer  "mp3_file_file_size"
+    t.datetime "mp3_file_updated_at"
+    t.integer  "band_id"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

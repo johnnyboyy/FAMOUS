@@ -3,7 +3,7 @@ FAMOUS::Application.routes.draw do
   resources :songs, only: [:index]
   resources :users, only: [:show]
   resources :bands do
-    resources :songs, only: [:index, :new, :create, :show, :destroy]
+    resources :songs, except: [:index]
     member do
       post 'join'
     end

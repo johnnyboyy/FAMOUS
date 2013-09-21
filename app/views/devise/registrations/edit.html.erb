@@ -23,8 +23,9 @@
                 <%= f.password_field :password_confirmation, class: "xwide input" %>
               </li>
               <li class="field">
-                <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-                <%= f.password_field :current_password %>
+                <%= f.label :current_password %>
+                <%= f.password_field :current_password, class: "xwide input" %><br />
+                <span>(we need your current password to confirm your changes)</span>  
               </li>
               <li>
                 <div class="medium secondary btn"><%= f.submit 'Update'%>

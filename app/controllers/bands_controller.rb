@@ -11,6 +11,7 @@ class BandsController < ApplicationController
 	  def show
 	  	@band = Band.find(params[:id])
 			@members = @band.users
+			@songs = @band.songs
 
 	    respond_to do |format|
 	      format.html # show.html.erb

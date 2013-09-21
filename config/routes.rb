@@ -1,6 +1,6 @@
 FAMOUS::Application.routes.draw do
   devise_for :users
-  resources :songs, only: [:index]
+  resources :songs, only: [:index, :destroy]
   resources :users, only: [:show]
   resources :bands do
     resources :songs, except: [:index]

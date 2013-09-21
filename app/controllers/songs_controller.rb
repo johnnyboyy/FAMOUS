@@ -16,7 +16,7 @@ class SongsController < ApplicationController
 		@song.artist = @band.name
 
 		if @song.save
-			redirect_to band_songs_path
+			redirect_to band_path(@band), notice: "#{@song.title} was added"
 		else
 			render 'new'
 		end
@@ -25,8 +25,9 @@ class SongsController < ApplicationController
 	def destroy
 		@song = Song.find(params[:id])
 		@song.destroy
+		@band = Band.find(@song.band_id)
 
-		redirect_to band_songs_path, notice: "Succesfully removed song"
+		redirect_to @band, notice: "Succesfully removed song"
 	end
 
 

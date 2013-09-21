@@ -1,12 +1,30 @@
-<h1><%= @band.name %></h1>
-<%= link_to 'Join' + @band.name, join_band_path, method: :post %>
-<div class="band_members">
-	<ul>
-		<% @members.each do |m| %>
-			<li>member:
-				<%= m.email %>
-			</li>
-		<% end %>
-		<%= link_to "New Song", new_band_song_path(params[:id]) %>
-	</ul>
+
+	<div class="band_name">
+		<h1><%= @band.name %></h1>
+	</div>
+
+		<div class="band_members">
+			<ul>
+				<% @members.each do |m| %>
+					<li>
+						<%= m.first_name %>
+					</li>
+				<% end %>
+			</ul>
+		</div>	
+	</div>
+	<div class="right_side_actions">
+		<ul>
+			<li><%= link_to 'Join ' + @band.name, join_band_path, method: :post %></li>
+
+			<li><%= link_to "New Song", new_band_song_path(params[:id]) %></li>
+		</ul>
+	</div>
+
+
+</div>
+
+	<% if @band.songs %>
+		<%= render 'songs/songtab' %>
+	<% end %>
 </div>

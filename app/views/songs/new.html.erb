@@ -1,7 +1,4 @@
 
-<h3><%= params[:band_id] %></h3>
-
-
 <%= form_for([@band, @band.songs.create]) do |f| %>
  
   <% if @song.errors.any? %>

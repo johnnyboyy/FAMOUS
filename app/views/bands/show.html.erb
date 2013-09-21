@@ -13,13 +13,17 @@
 			</ul>
 		</div>	
 	</div>
-	<div class="right_side_actions">
-		<ul>
-			<li><%= link_to 'Join ' + @band.name, join_band_path, method: :post %></li>
 
-			<li><%= link_to "New Song", new_band_song_path(params[:id]) %></li>
-		</ul>
-	</div>
+	<% if user_signed_in? %>
+		<div class="right_side_actions">
+			<ul>
+				<li><%= link_to 'Join ' + @band.name, join_band_path, method: :post %></li>
+				<% if @band.user_id.include?(current_user.id) %> 
+					<li><%= link_to "New Song", new_band_song_path(params[:id]) %></li>
+					<% end %>
+			</ul>
+		</div>
+	<% end %>
 
 
 </div>

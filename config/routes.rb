@@ -1,6 +1,11 @@
 FAMOUS::Application.routes.draw do
   devise_for :users
-  resources :songs, only: [:index, :destroy]
+  resources :songs, only: [:index, :destroy] do
+    member do
+      post 'like', as: 'like'
+      post 'unlike', as: 'unlike'
+    end
+  end
   resources :users, only: [:show]
   resources :bands do
     resources :songs, except: [:index]

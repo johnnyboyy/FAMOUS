@@ -6,6 +6,11 @@
 			<% if @band.users.include?(current_user) %>
 				<%= link_to content_tag(:i,"",class: "icon-cancel-circled"), song_path(s), method: :delete, class: "x-button", data: { confirm: 'Are you sure you want to delete this song?' } %>
 				<% end %>
+				<% if current_user.songs.include?(s) %>
+					<%= button_to 'unlike', unlike_song_path(s.id) %>
+				<% else %>
+					<%= button_to 'like', like_song_path(s.id) %> 
+				<% end %>
 			<% end %>
 
 			<div id="content_holder">

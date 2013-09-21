@@ -1,5 +1,25 @@
 class SongsController < ApplicationController
 
+	# custom actions
+
+	def like
+		@song = Song.find(params[:id])
+		@song.likes.create(liked: true, user_id: current_user.id)
+
+		redirect_to @song.band
+	end
+
+	def unlike
+		@song = Song.find(params[:id])
+		@like = @song.likes.where(user_id: current_user.id).first
+		@like.destroy
+
+		redirect_to @song.band
+	end
+
+	# end custom actions
+
+
 	def index
 		@songs = Song.all
 	end

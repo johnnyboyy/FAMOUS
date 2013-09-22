@@ -1,6 +1,4 @@
 
-<div class="row" id="list_row">
-	<div class="twelve columns">
 		<% @songs.each do |s| %>
 		<% if user_signed_in? %>
 			<% if @band.users.include?(current_user) %>
@@ -32,5 +30,3 @@
 				</audio>
 			</div>
 		<% end %>
-	</div>
-</div>

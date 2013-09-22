@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130922172808) do
+ActiveRecord::Schema.define(version: 20130922174114) do
 
   create_table "bands", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.integer  "fame",       default: 0
   end
 
   add_index "bands", ["user_id"], name: "index_bands_on_user_id"

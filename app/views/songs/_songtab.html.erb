@@ -1,20 +1,21 @@
-
+<div class="row" id="list_row">
+	<div class="twelve columns">
 		<% @songs.each do |s| %>
-		<% if user_signed_in? %>
-			<% if @band.users.include?(current_user) %>
-				<%= link_to content_tag(:i,"",class: "icon-cancel-circled"), song_path(s), method: :delete, class: "x-button", data: { confirm: 'Are you sure you want to delete this song?' } %>
+
+			<% if user_signed_in? %>
+				<% if @band.users.include?(current_user) %>
+					<%= link_to content_tag(:i,"",class: "icon-cancel-circled"), song_path(s), method: :delete, class: "x-button", data: { confirm: 'Are you sure you want to delete this song?' } %>
 				<% end %>
 			<% end %>
 
 			<div id="content_holder">
 
-
 				<div class="track_info">
 					<h4 class="title"><%= s.title %></h4>					
-					<h5 class="artist">By: <%= s.artist %></h5>
+					<h5 class="artist">By: <%= link_to s.artist, s.band %></h5>
 				</div>
 
-				<span class="likes">
+					<span class="likes">
 					<% if user_signed_in? %>
 						<% if current_user.songs.include?(s) %>
 							<span class="pretty small primary btn"><%= link_to 'unlike', unlike_song_path(s.id), method: :post %></span>
@@ -30,3 +31,5 @@
 				</audio>
 			</div>
 		<% end %>
+	</div>
+</div>

@@ -1,17 +1,8 @@
 
+
+
 	<div class="band_name">
 		<h1><%= @band.name %></h1>
-	</div>
-
-		<div class="band_members">
-			<ul>
-				<% @members.each do |m| %>
-					<li>
-						<%= m.first_name %>
-					</li>
-				<% end %>
-			</ul>
-		</div>	
 	</div>
 
 	<% if user_signed_in? %>
@@ -30,9 +21,42 @@
 	<% end %>
 
 
+<div class="row">
+	<div class="twelve cloumns">
+
+		<section class="tabs">
+
+			<ul class="tab-nav">
+				<li class="tab active">
+					<a href="#">Songs</a>
+				</li>
+			  <li>
+			  	<a href="#" class="tab">Band Members</a>
+			  </li>
+				<div class="tab-content active">
+		        <%= render 'songs/songtab' %>
+		    </div>
+		    <div class="tab-content">
+		    <div class="band_members">
+					<ul>
+						<% @members.each do |m| %>
+							<li>
+								<%= m.first_name %>
+							</li>
+						<% end %>
+					</ul>
+		</div>	
+	</div>
+		    </div>
+			</ul>
+
+		</section>
+
+
+	</div>
 </div>
 
-	<% if @band.songs %>
-		<%= render 'songs/songtab' %>
-	<% end %>
-</div>
+
+
+
+

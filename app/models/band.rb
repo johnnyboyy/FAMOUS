@@ -7,7 +7,7 @@ class Band < ActiveRecord::Base
 	validates :name, presence: true
 
 
-
+	has_attached_file :profile_pic, default_url: 'blank.png'
 
 
 	def fame

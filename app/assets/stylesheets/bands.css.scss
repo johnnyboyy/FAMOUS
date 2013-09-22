@@ -3,15 +3,19 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-.band_name {
+div.band_name {
 	// text rotation
 	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 	-webkit-transform: rotate(-90deg); 
 	-moz-transform: rotate(-90deg);	
 
-	position: fixed;
-	left: -20px;
-	top: 250px;
+
+	position: absolute;
+	min-width: 30%;
+	max-width: 40%;
+	left: -180px;
+	margin-top: 200px;
+	word-wrap: break-word;
 }
 
 .right_side_actions {
@@ -22,4 +26,5 @@
 	margin-right: 50px;
 	padding: 15px;
 	border-left: 1px solid black;
+	
 }

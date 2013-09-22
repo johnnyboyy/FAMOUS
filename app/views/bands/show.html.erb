@@ -2,11 +2,11 @@
 
 
 	<div class="band_name">
-		<h1><%= @band.name %></h1>
+		<h2><%= @band.name %></h2>
 	</div>
 
 	<% if user_signed_in? %>
-		<div class="right_side_actions">
+		<div class="four columns right_side_actions">
 			<ul>
 				<% if @band.users.include?(current_user) %>
 

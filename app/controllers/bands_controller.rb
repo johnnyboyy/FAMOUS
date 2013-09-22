@@ -2,10 +2,6 @@ class BandsController < ApplicationController
 	  def index
 	  	@bands = Band.all
 	
-	    respond_to do |format|
-	      format.html # index.html.erb
-	      format.json { render json: @Bands }
-	    end
 	  end
 	
 	  def show
@@ -13,10 +9,6 @@ class BandsController < ApplicationController
 			@members = @band.users
 			@songs = @band.songs.order("fame DESC")
 
-	    respond_to do |format|
-	      format.html # show.html.erb
-	      format.json { render json: @band }
-	    end
 	  end
 	
 	  def new

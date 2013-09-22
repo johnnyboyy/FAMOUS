@@ -7,31 +7,37 @@
     <h2 class="four columns logo">
       <%= link_to "FAMOUS", :root %>
     </h2>
-    <ul id="nav_float_right">
-      <% if user_signed_in? %>
-         
-        <li>
-          <a href="#"><i class="icon-cog" id="nav_font"> </i></a>
-          <div id="dropdown_width" class="dropdown">
-            <ul id="dropdown_width">         
-              <li><%= link_to "Edit Account", edit_user_registration_path %>
+
+    <div class="row">
+      <div class="four columns centered">
+        <ul id="nav">
+          <% if user_signed_in? %>
+
+            <li>
+              <%= link_to current_user.email, user_path(current_user) %>
+            </li>
+            
+              <li>
+                <a href="#"><i class="icon-cog" id="nav_font"> </i></a>
+                <div class="dropdown">
+                  <ul>         
+                    <li><%= link_to "Edit Account", edit_user_registration_path %>
+                    </li>
+                    <li><%= link_to "Log out", destroy_user_session_path(user_session), method: :delete %>
+                  </ul>
+                </div>
               </li>
-              <li><%= link_to "Log out", destroy_user_session_path(user_session), method: :delete %>
-            </ul>
-          </div>
-        </li>
 
-        <li>
-          <%= link_to current_user.email, user_path(current_user) %>
-        </li>
 
-      <% else %>
+          <% else %>
 
-       <li><%= link_to "Sign up", new_user_registration_path %></li>
-       <li><%= link_to "Sign in", new_user_session_path %></li>
+           <li><%= link_to "Sign up", new_user_registration_path %></li>
+           <li><%= link_to "Sign in", new_user_session_path %></li>
 
-      <% end %>
-      <li></li>
-    </ul>
+          <% end %>
+          <li></li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>

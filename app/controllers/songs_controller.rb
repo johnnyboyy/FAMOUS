@@ -5,6 +5,8 @@ class SongsController < ApplicationController
 	def like
 		@song = Song.find(params[:id])
 		@song.likes.create(liked: true, user_id: current_user.id)
+		@song.fame += 1
+		@song.save
 
 		redirect_to :back
 	end
@@ -12,6 +14,8 @@ class SongsController < ApplicationController
 	def unlike
 		@song = Song.find(params[:id])
 		@like = @song.likes.where(user_id: current_user.id).first
+		@song.fame -= 1
+		@song.save
 		@like.destroy
 
 		redirect_to :back
@@ -21,7 +25,7 @@ class SongsController < ApplicationController
 
 
 	def index
-		@songs = Song.all
+		@songs = Song.all.order("fame DESC")
 	end
 
 	def new

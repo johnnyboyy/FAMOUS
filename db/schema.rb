@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130921212855) do
+ActiveRecord::Schema.define(version: 20130922172808) do
 
   create_table "bands", force: true do |t|
     t.string   "name"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20130921212855) do
     t.integer  "mp3_file_file_size"
     t.datetime "mp3_file_updated_at"
     t.integer  "band_id"
+    t.integer  "fame",                  default: 0
   end
 
   create_table "users", force: true do |t|

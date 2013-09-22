@@ -11,7 +11,10 @@ class Band < ActiveRecord::Base
 
 
 	def fame
-		self.songs.inject(0) { |count, s| count += s.likes.count }
+		fame = self.songs.inject(0) { |count, s| count += s.likes.count }
+		self.fame = fame
+		self.save
+		fame
 	end
 
 end

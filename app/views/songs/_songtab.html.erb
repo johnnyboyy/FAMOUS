@@ -22,7 +22,7 @@
 							<span class="pretty small primary btn" ><%= link_to 'like', like_song_path(s.id), method: :post %></span>
 						<% end %>
 					<% end %>
-					Fame: <%= s.likes.count %>
+					Fame: <%= s.fame %>
 				</span>
 
 				<audio class="song_player" src="<%=s.mp3_file.url%>" controls>

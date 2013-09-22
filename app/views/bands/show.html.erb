@@ -17,10 +17,14 @@
 	<% if user_signed_in? %>
 		<div class="right_side_actions">
 			<ul>
-				<li><%= link_to 'Join ' + @band.name, join_band_path, method: :post %></li>
-				<% if @band.users.include?(current_user) %> 
+				<% if @band.users.include?(current_user) %>
+
 					<li><%= link_to "New Song", new_band_song_path(params[:id]) %></li>
-					<% end %>
+					<li><%= link_to 'Leave ' + @band.name, leave_band_path, method: :post %></li>
+
+				<% else %>
+					<li><%= link_to 'Join ' + @band.name, join_band_path, method: :post %></li>
+				<% end %>
 			</ul>
 		</div>
 	<% end %>

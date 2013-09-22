@@ -5,7 +5,7 @@
 
 audio.song_player{
 	float: right;
-	margin-top: 35px;
+	clear: right;
 }
 
 div {
@@ -17,3 +17,18 @@ div {
 		}
 	}
 }
+
+
+span.likes {
+	float: right;
+	margin: 5px;
+
+	div {
+		float: right;
+	}
+}
+
+
+
+
+

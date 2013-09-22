@@ -11,6 +11,7 @@ FAMOUS::Application.routes.draw do
     resources :songs, except: [:index]
     member do
       post 'join'
+      post 'leave'
     end
   end
   resources :main, only: [:index]

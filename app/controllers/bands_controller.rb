@@ -66,6 +66,12 @@ class BandsController < ApplicationController
 	  	@band.users << current_user
 	  	redirect_to @band
 	  end
+
+	  def leave
+	  	@band = Band.find(params[:id])
+	  	@band.users.delete(current_user)
+	  	redirect_to @band
+	  end
 	
 	  def destroy
 	  	@band = Band.find(params[:id])

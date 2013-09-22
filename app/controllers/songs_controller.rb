@@ -6,7 +6,7 @@ class SongsController < ApplicationController
 		@song = Song.find(params[:id])
 		@song.likes.create(liked: true, user_id: current_user.id)
 
-		redirect_to @song.band
+		redirect_to :back
 	end
 
 	def unlike
@@ -14,7 +14,7 @@ class SongsController < ApplicationController
 		@like = @song.likes.where(user_id: current_user.id).first
 		@like.destroy
 
-		redirect_to @song.band
+		redirect_to :back
 	end
 
 	# end custom actions

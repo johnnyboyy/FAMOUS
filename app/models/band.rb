@@ -6,4 +6,12 @@ class Band < ActiveRecord::Base
 	validates_associated :songs
 	validates :name, presence: true
 
+
+
+
+
+	def fame
+		self.songs.inject(0) { |count, s| count += s.likes.count }
+	end
+
 end

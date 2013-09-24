@@ -1,43 +1,36 @@
-  
 
-<div class="navbar metro" id="nav1">
- <!-- Toggle for mobile navigation, targeting the <ul> -->
-  <a class="toggle" gumby-trigger="#nav1 > .target > ul" href="#"><i class="icon-menu"></i></a>
-  <div class="target">
-    <h2 class="four columns logo">
-      <%= link_to "FAMOUS", :root %>
-    </h2>
+<div class="navbar" id="nav1">
+  <div class="row">
+    <a class="toggle" gumby-trigger="#nav1 > .row > ul" href="#"><i class="icon-menu"></i></a>
+    <h1 class="four columns logo">
+        <%= link_to 'FAMOUS', :root %>
+    </h1>
+    <ul class="eight columns pull_right">
+     <% if user_signed_in? %>
+      <li>
+        <%= link_to current_user.email, user_path(current_user) %>
+      </li>
 
-    <div class="row">
-      <div class="four columns centered">
-        <ul id="nav">
-          <% if user_signed_in? %>
 
-            <li>
-              <%= link_to current_user.email, user_path(current_user) %>
+      <li>
+        <a href="#"><i class="icon-cog" id="nav_font"> </i></a>
+        <div class="dropdown">
+          <ul>         
+            <li><%= link_to "Edit Account", edit_user_registration_path %>
             </li>
-            
-              <li>
-                <a href="#"><i class="icon-cog" id="nav_font"> </i></a>
-                <div class="dropdown">
-                  <ul>         
-                    <li><%= link_to "Edit Account", edit_user_registration_path %>
-                    </li>
-                    <li><%= link_to "Log out", destroy_user_session_path(user_session), method: :delete %>
-                  </ul>
-                </div>
-              </li>
+            <li><%= link_to "Log out", destroy_user_session_path(user_session), method: :delete %></li>
+          </ul>
+        </div>
+      </li>
 
 
-          <% else %>
-
-           <li><%= link_to "Sign up", new_user_registration_path %></li>
-           <li><%= link_to "Sign in", new_user_session_path %></li>
-
-          <% end %>
-          <li></li>
-        </ul>
-      </div>
-    </div>
+      <% else %>
+        <li><%= link_to "Sign up", new_user_registration_path %></li>
+        <li><%= link_to "Sign in", new_user_session_path %></li>
+      <% end %>
+      <li><a href="#">Customize</a></li>
+      <li class="field"><input class="search input" type="search" placeholder="Search" /></li>
+    </ul>
   </div>
 </div>
+

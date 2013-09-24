@@ -1,28 +1,18 @@
 
 
 
-	<div class="band_name">
-		<h2><%= @band.name %></h2>
-	</div>
 
-	<% if user_signed_in? %>
-		<div class="four columns right_side_actions">
-			<ul>
-				<% if @band.users.include?(current_user) %>
-
-					<li><%= link_to "New Song", new_band_song_path(params[:id]) %></li>
-					<li><%= link_to 'Leave ' + @band.name, leave_band_path, method: :post %></li>
-
-				<% else %>
-					<li><%= link_to 'Join ' + @band.name, join_band_path, method: :post %></li>
-				<% end %>
-			</ul>
-		</div>
-	<% end %>
 
 
 <div class="row">
-	<div class="twelve cloumns">
+
+	<div class="three columns">
+		<div>
+			<h3><%= @band.name %></h3>
+		</div>
+	</div>
+
+	<div class="seven columns">
 
 		<section class="tabs">
 
@@ -37,23 +27,39 @@
 		        <%= render 'songs/songtab' %>
 		    </div>
 		    <div class="tab-content">
-		    <div class="band_members">
-					<ul>
-						<% @members.each do |m| %>
-							<li>
-								<%= m.first_name %>
-							</li>
-						<% end %>
-					</ul>
-		</div>	
-	</div>
-		    </div>
+		    	<div class="band_members">
+						<ul>
+							<% @members.each do |m| %>
+								<li>
+									<%= m.first_name %>
+								</li>
+							<% end %>
+						</ul>
+					</div>	
+				</div>
 			</ul>
 
 		</section>
 
 
 	</div>
+
+	<% if user_signed_in? %>
+		<div class="two column">
+			<ul>
+				<% if @band.users.include?(current_user) %>
+
+					<li><%= link_to "New Song", new_band_song_path(params[:id]) %></li>
+					<li><%= link_to 'Leave ' + @band.name, leave_band_path, method: :post %></li>
+
+				<% else %>
+					<li><%= link_to 'Join ' + @band.name, join_band_path, method: :post %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+
+
 </div>
 
 

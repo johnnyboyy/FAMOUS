@@ -4,10 +4,14 @@
   <%= devise_error_messages! %>
 
    <div class="row">
-      <fieldset class="eight columns">
+      <fieldset class="push_two six columns">
         <legend><h2>Sign Up</h2></legend>
         <ul>
             <ul>
+              <li class="field">
+              	<%= f.label :email %>
+  							<%= f.email_field :email, :autofocus => true, class: "xxwide input" %>
+              </li>
               <li class="field">
                 <%=f.label :first_name %>
                 <%=f.text_field :first_name, class: "xwide input" %>
@@ -15,10 +19,6 @@
               <li class="field">
                 <%=f.label :last_name %>
                 <%=f.text_field :last_name, class: "xwide input" %>
-              </li>
-              <li class="field">
-              	<%= f.label :email %>
-  							<%= f.email_field :email, :autofocus => true, class: "xxwide input" %>
               </li>
               <li class="field">
 	              <%= f.label :password %>

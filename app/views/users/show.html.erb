@@ -1,7 +1,12 @@
-<h2><%= @user.email %></h2>
+
 
 <div class="row">
-	<div class="twelve cloumns">
+
+	<div class="three columns">
+		<h3> <%= @user.email %> </h3>
+	</div>
+
+	<div class=" seven columns">
 		<div class="tab_container">
 			<section class="tabs">
 
@@ -26,6 +31,11 @@
 			</section>
 		</div>
 	</div>
+
+	<div class="two columns">
+		<%= link_to "Make a Band", new_band_path %>
+	</div>
+
+
 </div>
 
-<%= link_to "Make a Band", new_band_path %>

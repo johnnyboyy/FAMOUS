@@ -9,16 +9,8 @@
 					<h4 class="title"><%= s.title %></h4>					
 					<h5 class="artist">By: <%= link_to s.artist, s.band %></h5>
 				</div>
-
-					<span class="likes">
-					<% if user_signed_in? %>
-						<% if current_user.songs.include?(s) %>
-							<span class="pretty small primary btn"><%= link_to 'unlike', unlike_song_path(s.id), method: :post %></span>
-						<% else %>
-							<span class="pretty small primary btn" ><%= link_to 'like', like_song_path(s.id), method: :post %></span>
-						<% end %>
-					<% end %>
-					Fame: <%= s.fame %>
+				<span class="likes" id="<%= s.id %>">
+					<%= render 'songs/likes', s: s %>
 				</span>
 
 				<audio class="song_player" src="<%=s.mp3_file.url%>" controls>

@@ -1,0 +1,17 @@
+<% @songs.each do |s| %>
+	<div id="content_holder">
+		<%= render 'partials/bandMemberOptions', {band: @band, s: s} %>
+		<div class="track_info">
+			<h4 class="title"><%= s.title %></h4>					
+			<h5 class="artist">By: <%= link_to s.artist, s.band %></h5>
+		</div>
+
+		<span class="likes" id="<%= s.id %>">
+			<%= render 'songs/likes', s: s %>
+		</span>
+
+		<audio class="song_player" src="<%=s.mp3_file.url%>" controls>
+			<p>If you are reading this, it is because your browser does not support the audio element.</p>
+		</audio>
+	</div>
+<% end %>

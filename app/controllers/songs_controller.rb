@@ -8,7 +8,11 @@ class SongsController < ApplicationController
 		@song.fame += 1
 		@song.save
 
-		redirect_to :back
+		respond_to do |format|
+			format.html { redirect_to :back }
+			format.js { render "songs/likeToggle" 
+			}
+		end
 	end
 
 	def unlike
@@ -18,7 +22,11 @@ class SongsController < ApplicationController
 		@song.save
 		@like.destroy
 
-		redirect_to :back
+
+		respond_to do |format|
+			format.html { redirect_to :back }
+			format.js { render "songs/likeToggle" }
+		end
 	end
 
 	# end custom actions

@@ -19,7 +19,7 @@
               </li>
             </ul>
 			 			<% if devise_mapping.rememberable? -%>
-			    		<div><%= f.check_box :remember_me, class: "checkbox" %>Remember me?</div>
+			    		<div><%= f.check_box :remember_me %>Remember me?</div>
 			    	<% end %>
             <li><%= render "devise/shared/links" %></li>
         </ul>

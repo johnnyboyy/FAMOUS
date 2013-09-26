@@ -26,33 +26,28 @@
 }
 
 
-div#list_row {
 
 
-	#content_holder {
-		padding-bottom: 20px;
-		border-bottom: 1px solid black;
-		min-height: 100px;
 
-		.track_info {
-			width: 300px;
-			word-wrap: break-word;
-			float: left;
-		}
+div#content_holder {
+	padding-bottom: 20px;
+	border-bottom: 1px solid black;
+	min-height: 100px;
 
-		.title{
-		}
+	.track_info {
+		width: 300px;
+		word-wrap: break-word;
+		float: left;
+	}
 
-		.artist {
-			margin-left: 20px;
-		}
+	.title{
+	}
+
+	.artist {
+		margin-left: 20px;
 	}
 }
 
-div.rows {
-	margin: 0;
-	position: center;
-}
 
 section.tabs {
 

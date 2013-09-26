@@ -1,0 +1,7 @@
+	
+
+$(document).ready(function(){
+	$("span#<%= @song.id %>").html("")
+	$("span#<%= @song.id %>").html("<%= escape_javascript(render(:partial => '/songs/likes', locals: {s: @song} )) %>");
+
+});

@@ -1,9 +1,11 @@
-
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "users.js" %>
+<% end %>
 
 <div class="row">
 
 	<div class="three columns">
-		<h3> <%= @user.email %> </h3>
+		<h3> <%= @user.first_name %> </h3>
 	</div>
 
 	<div class=" seven columns">

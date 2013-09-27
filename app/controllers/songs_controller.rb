@@ -4,28 +4,37 @@ class SongsController < ApplicationController
 
 	def like
 		@song = Song.find(params[:id])
-		@song.likes.create(liked: true, user_id: current_user.id)
-		@song.fame += 1
-		@song.save
 
 		respond_to do |format|
-			format.html { redirect_to :back }
-			format.js { render "songs/likeToggle" 
-			}
+
+			if @song.likes.create(liked: true, user_id: current_user.id)
+				@song.fame += 1
+				@song.save
+
+				format.html { redirect_to :back }
+				format.js { render "songs/likeToggle" }
+			else
+				format.html { redirect_to :back, alert: "You can't like a song more than once!" }
+				format.js { render :back, alert: "You can't like a song more than once!"  }
+			end
 		end
 	end
 
 	def unlike
 		@song = Song.find(params[:id])
 		@like = @song.likes.where(user_id: current_user.id).first
-		@song.fame -= 1
-		@song.save
-		@like.destroy
-
-
 		respond_to do |format|
-			format.html { redirect_to :back }
-			format.js { render "songs/likeToggle" }
+			if @like
+				@like.destroy
+				@song.fame -= 1
+				@song.save
+
+				format.html { redirect_to :back }
+				format.js { render "songs/likeToggle" }
+			else
+				format.html { redirect_to :back, alert: "You already unliked this song!"  }
+				format.js { redirect_to :back, alert: "You already unliked this song!"  }
+			end
 		end
 	end
 

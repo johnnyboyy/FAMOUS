@@ -4,7 +4,7 @@ class Like < ActiveRecord::Base
 
 
 	# validations:
-	validates :liked, :song_id, :user_id, presence: true
+	validates :song_id, :user_id, presence: true
 	validates_uniqueness_of :user_id, scope: :song_id
 
 

@@ -13,4 +13,11 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+
+  def liked_bands
+  	bands = []
+  	self.likes.map(&:song).compact.inject(bands) { |bands, s| bands << s.band }
+  	bands.uniq
+  end
 end

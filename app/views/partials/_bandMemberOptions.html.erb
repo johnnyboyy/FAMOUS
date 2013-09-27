@@ -1,5 +1,13 @@
-<% if user_signed_in? %>
-	<% if band.users.include?(current_user) %>
-		<%= link_to content_tag(:i,"",class: "icon-cancel-circled"), song_path(s), method: :delete, class: "x-button", data: { confirm: 'Are you sure you want to delete this song?' } %>
-	<% end %>
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "bandMemberOptions.js" %>
 <% end %>
+
+
+
+<span class="member_options">
+	<% if user_signed_in? %>
+		<% if band.users.include?(current_user) %>
+			<%= link_to content_tag(:i,"",class: "icon-cancel-circled"), song_path(s), method: :delete, class: "x-button", data: { confirm: 'Are you sure you want to delete this song?' } %>
+		<% end %>
+	<% end %>
+</span>

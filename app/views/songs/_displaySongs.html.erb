@@ -1,6 +1,6 @@
 <% @songs.each do |s| %>
 	<div id="content_holder">
-		<%= render 'partials/bandMemberOptions', {band: @band, s: s} %>
+		<%= render 'partials/bandMemberOptions', {band: s.band, s: s} %>
 		<div class="track_info">
 			<h4 class="title"><%= s.title %></h4>					
 			<h5 class="artist">By: <%= link_to s.artist, s.band %></h5>

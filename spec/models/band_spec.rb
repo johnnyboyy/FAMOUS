@@ -1,5 +1,9 @@
 require 'spec_helper'
 
 describe Band do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "should require a user_id" do
+  	expect(Band.new.save).to eq(false)
+  end
+
+
 end

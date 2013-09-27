@@ -3,6 +3,6 @@ class UsersController < ApplicationController
 	def show
 		@user = current_user
 		@songs = @user.songs
-		@bands = @user.bands
+		@bands = @user.liked_bands
 	end
 end

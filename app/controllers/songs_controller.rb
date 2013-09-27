@@ -7,12 +7,13 @@ class SongsController < ApplicationController
 
 		respond_to do |format|
 
-			if @song.likes.create(liked: true, user_id: current_user.id)
-				@song.fame += 1
-				@song.save
+			if @song.likes.create(user_id: current_user.id)
 
 				format.html { redirect_to :back }
 				format.js { render "songs/likeToggle" }
+
+				@song.fame += 1
+				@song.save
 			else
 				format.html { redirect_to :back, alert: "You can't like a song more than once!" }
 				format.js { render :back, alert: "You can't like a song more than once!"  }
@@ -25,12 +26,12 @@ class SongsController < ApplicationController
 		@like = @song.likes.where(user_id: current_user.id).first
 		respond_to do |format|
 			if @like
+				format.html { redirect_to :back }
+				format.js { render "songs/likeToggle" }
+
 				@like.destroy
 				@song.fame -= 1
 				@song.save
-
-				format.html { redirect_to :back }
-				format.js { render "songs/likeToggle" }
 			else
 				format.html { redirect_to :back, alert: "You already unliked this song!"  }
 				format.js { redirect_to :back, alert: "You already unliked this song!"  }

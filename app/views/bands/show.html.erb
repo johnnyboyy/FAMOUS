@@ -45,6 +45,7 @@
 
 					<li><%= link_to "New Song", new_band_song_path(params[:id]) %></li>
 					<li><%= link_to 'Leave ' + @band.name, leave_band_path, method: :post %></li>
+					<li><div class="small info btn icon-left entypo icon-cancel-circled member_options_toggle"><a href="#">Edit</a></div></li>
 
 				<% else %>
 					<li><%= link_to 'Join ' + @band.name, join_band_path, method: :post %></li>

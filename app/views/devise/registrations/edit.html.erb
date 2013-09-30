@@ -9,31 +9,35 @@
       <fieldset class="push_two six columns">
         <legend><h4>Edit <%= resource_name.to_s.humanize %></h4></legend>
         <ul>
-            <ul>
-              <li class="field">
-                <%= f.label :email %>
-                <%= f.email_field :email, autofocus: true, class: "xxwide input" %>
-              </li>
-              <li class="field">
-                <%= f.label :password %>
-                <%= f.password_field :password, class: "xwide input" %>
-              </li>
-              <li class="field">
-                <%= f.label :password_confirmation %>
-                <%= f.password_field :password_confirmation, class: "xwide input" %>
-              </li>
-              <li class="field">
-                <%= f.label :current_password %>
-                <%= f.password_field :current_password, class: "xwide input" %><br />
-                <span>(we need your current password to confirm your changes)</span>  
-              </li>
-              <li>
-                <div class="medium secondary btn"><%= f.submit 'Update'%>
-              </li>
-            </ul>
-            <li>
-              <%= link_to "Back", :back %>
+          <ul>
+            <li class="field">
+              <%= f.label :email %>
+              <%= f.email_field :email, autofocus: true, class: "xxwide input" %>
             </li>
+            <li class="field">
+              <%=f.label :profile_pic %>
+              <%=f.file_field :profile_pic %>
+            </li>
+            <li class="field">
+              <%= f.label :password %>
+              <%= f.password_field :password, class: "xwide input" %>
+            </li>
+            <li class="field">
+              <%= f.label :password_confirmation %>
+              <%= f.password_field :password_confirmation, class: "xwide input" %>
+            </li>
+            <li class="field">
+              <%= f.label :current_password %>
+              <%= f.password_field :current_password, class: "xwide input" %><br />
+              <span>(we need your current password to confirm your changes)</span>  
+            </li>
+            <li>
+              <div class="medium secondary btn"><%= f.submit 'Update'%>
+            </li>
+          </ul>
+          <li>
+            <%= link_to "Back", :back %>
+          </li>
         </ul>
       </fieldset>
       <fieldset class="four columns">

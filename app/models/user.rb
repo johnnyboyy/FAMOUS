@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 	has_many :likes
 	has_many :songs, through: :likes
 	
-	has_attached_file :profile_pic, default_url: 'blank.png'
+	has_attached_file :profile_pic, default_url: "Famous_Silohuette.png"
 	
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,

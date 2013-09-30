@@ -14,44 +14,30 @@
  */
 
 
-#nav_font {
-	font-size: 16pt;
-}
-
-.odd {
-	background: rgba(28, 100, 240, 0.3);
-}
-.even {
-	background: rgba(240, 100, 28, 0.3);
-}
 
 
 
+// li#content_holder {
+// 	float: left;
+// 	padding-bottom: 20px;
+// 	border-bottom: 1px solid black;
+// 	min-height: 100px;
+// 	width: 100%;
+
+// 	.track_info {
+// 		word-wrap: break-word;
+
+// 	}
+
+// 	h4.title{
+// 		width: 300px;
+// 	}
+
+// 	h5.artist {
+// 		margin-left: 20px;
+// 	width: 300px;
+// 	}
 
 
-div#content_holder {
-	padding-bottom: 20px;
-	border-bottom: 1px solid black;
-	min-height: 100px;
-
-	.track_info {
-		width: 300px;
-		word-wrap: break-word;
-		float: left;
-	}
-
-	.title{
-	}
-
-	.artist {
-		margin-left: 20px;
-	}
-}
-
-
-section.tabs {
-
-	.tab {
-	}
-}
+// }
 

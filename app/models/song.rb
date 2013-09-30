@@ -4,7 +4,7 @@ class Song < ActiveRecord::Base
 	belongs_to :band
 
 	# to allow users to like songs
-	has_many :likes
+	has_many :likes, dependent: :destroy
 	has_many :users, through: :likes
 
 	# to upload a file using paperclip gem
@@ -15,7 +15,11 @@ class Song < ActiveRecord::Base
 	validates_attachment :mp3_file, :presence => true,
   :content_type => { :content_type => ["audio/mp3", "audio/x-m4a"] }
   
-
+	def fame
+		fame = self.likes.count
+		self.fame = fame
+		fame
+	end
 
 
 end

@@ -22,6 +22,10 @@
                 <%= f.label :name %><br>
                 <%= f.text_field :name, class: "input" %>
               </li>
+              <li class="field">
+                <%=f.label :profile_pic %>
+                <%=f.file_field :profile_pic %>
+              </li>
               <li class="medium secondary btn">
                 <%= f.submit 'Create Band' %>
               </li>

@@ -1,0 +1,11 @@
+class CreateGenres < ActiveRecord::Migration
+  def change
+    create_table :genres do |t|
+    	t.string :name
+    	t.references :band_id
+    	t.references :song_id
+
+      t.timestamps
+    end
+  end
+end

@@ -11,15 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130927210259) do
+ActiveRecord::Schema.define(version: 20130930162516) do
 
   create_table "bands", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.integer  "fame",        default: 0
-    t.string   "profile_pic"
+    t.integer  "fame",                     default: 0
+    t.string   "profile_pic_file_name"
+    t.string   "profile_pic_content_type"
+    t.integer  "profile_pic_file_size"
+    t.datetime "profile_pic_updated_at"
   end
 
   add_index "bands", ["user_id"], name: "index_bands_on_user_id"

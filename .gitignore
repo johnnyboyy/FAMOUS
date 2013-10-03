@@ -15,4 +15,5 @@
 /log/*.log
 /tmp
 /public/system/*
-/config/*
+/config/database.yml
+/config/initializers/devise.rb

@@ -20,4 +20,8 @@ class User < ActiveRecord::Base
   	self.likes.map(&:song).compact.inject(bands) { |bands, s| bands << s.band }
   	bands.uniq
   end
+
+  def name
+    return "#{first_name} #{last_name}"
+  end
 end

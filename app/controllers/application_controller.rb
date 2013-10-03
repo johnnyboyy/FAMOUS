@@ -19,4 +19,8 @@ class ApplicationController < ActionController::Base
             }
 
   end
+
+  def song_field(current_song)
+    # gets overriden by bands and songs controllers
+  end
 end

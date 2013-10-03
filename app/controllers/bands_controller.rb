@@ -14,6 +14,8 @@ class BandsController < ApplicationController
 
   def new
   	@band = Band.new
+    @form_title = "New band"
+    @form_button = "Create Band"
 
     respond_to do |format|
       format.html # new.html.erb
@@ -22,6 +24,9 @@ class BandsController < ApplicationController
   end
 
   def edit
+    @band = Band.find(params[:id])
+    @form_title = "Edit band"
+    @form_button = "Update Band"
   end
 
   def create
@@ -80,5 +85,9 @@ class BandsController < ApplicationController
 	  def get_band
 	  	@band = Band.find(params[:id])
 	  end
+
+    def song_field(current_song)
+      current_song.album.artwork.url
+    end
 
 end

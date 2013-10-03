@@ -3,11 +3,11 @@ class Band < ActiveRecord::Base
 	has_many :users, through: :bands_users
 	has_many :songs
 
-	validates_associated :songs
+	validates_associated :songs, dependent: :destroy
 	validates :name, presence: true
 
 
-	has_attached_file :profile_pic, default_url: 'blank.png'
+	has_attached_file :profile_pic, default_url: 'band_silohuette.jpg'
 
 
 	def fame

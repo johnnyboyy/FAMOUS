@@ -2,6 +2,7 @@
 
 	<div class="three columns">
 		<div>
+			<%= image_tag(@band.profile_pic.url, class: "profile_pic") %>
 			<h3><%= @band.name %></h3>
 		</div>
 	</div>
@@ -25,7 +26,9 @@
 						<ul>
 							<% @members.each do |m| %>
 								<li>
-									<%= m.first_name %>
+									<%= image_tag(m.profile_pic.url, class: "tab_field_pic") %>
+
+									<h3><%= link_to m.name, user_path(m) %></h3>
 								</li>
 							<% end %>
 						</ul>
@@ -45,8 +48,13 @@
 
 					<li><%= link_to "New Song", new_band_song_path(params[:id]) %></li>
 					<li><%= link_to 'Leave ' + @band.name, leave_band_path, method: :post %></li>
-					<li><div class="small info btn icon-left entypo icon-cancel-circled member_options_toggle"><a href="#">Edit</a></div></li>
+					<li><a href="#" class="member_options_toggle">Edit Songs</a></li>
+					<li><%= link_to "Edit Band", edit_band_path(@band) %></li>
+					<li>
+					<%= link_to 'Delete Band', @band, method: :delete, confirm: "are you sure?" %>
+					</li>
 
+					
 				<% else %>
 					<li><%= link_to 'Join ' + @band.name, join_band_path, method: :post %></li>
 				<% end %>

@@ -79,4 +79,8 @@ class SongsController < ApplicationController
 	def song_params
 		params.require(:song).permit(:title, :artist, :band_id, :mp3_file)
 	end
+
+	def song_field(current_song)
+		current_song.band.profile_pic.url
+	end
 end

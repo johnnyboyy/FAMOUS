@@ -1,19 +1,19 @@
 class SongsController < ApplicationController
+	before_action :get_song, only: [:like, :unlike, :destroy]
 
 	# custom actions
 
 	def like
-		@song = Song.find(params[:id])
 
 		respond_to do |format|
 
+
 			if @song.likes.create(user_id: current_user.id)
+				@song.fame = @song.updated_fame
+				@song.save
 
 				format.html { redirect_to :back }
 				format.js { render "songs/likeToggle" }
-
-				@song.fame += 1
-				@song.save
 			else
 				format.html { redirect_to :back, alert: "You can't like a song more than once!" }
 				format.js { render :back, alert: "You can't like a song more than once!"  }
@@ -22,19 +22,22 @@ class SongsController < ApplicationController
 	end
 
 	def unlike
-		@song = Song.find(params[:id])
-		@like = @song.likes.where(user_id: current_user.id).first
+		@like = @song.likes.where(user_id: current_user.id).first.destroy
+	
 		respond_to do |format|
-			if @like
-				format.html { redirect_to :back }
+			if @song.likes.map(&:user).include?(@like.user)
+
+				flash.now[:alert] = "You already unliked this song!"
+				format.html { redirect_to :back  }
 				format.js { render "songs/likeToggle" }
 
-				@like.destroy
-				@song.fame -= 1
-				@song.save
 			else
-				format.html { redirect_to :back, alert: "You already unliked this song!"  }
-				format.js { redirect_to :back, alert: "You already unliked this song!"  }
+
+				@song.fame = @song.updated_fame
+				@song.save
+
+				format.html { redirect_to :back }
+				format.js { render "songs/likeToggle" }
 			end
 		end
 	end
@@ -65,7 +68,6 @@ class SongsController < ApplicationController
 	end
 
 	def destroy
-		@song = Song.find(params[:id])
 		@song.destroy
 		@band = Band.find(@song.band_id)
 
@@ -82,5 +84,9 @@ class SongsController < ApplicationController
 
 	def song_field(current_song)
 		current_song.band.profile_pic.url
+	end
+
+	def get_song
+		@song = Song.find(params[:id])
 	end
 end

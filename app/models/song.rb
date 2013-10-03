@@ -15,10 +15,8 @@ class Song < ActiveRecord::Base
 	validates_attachment :mp3_file, :presence => true,
   :content_type => { :content_type => ["audio/mp3", "audio/x-m4a"] }
   
-	def fame
-		fame = self.likes.count
-		self.fame = fame
-		fame
+	def updated_fame
+		self.fame = self.likes.count
 	end
 
 

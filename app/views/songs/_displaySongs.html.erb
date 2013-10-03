@@ -13,6 +13,7 @@
 		<div class="push_two four columns">
 			<span class="likes" id="<%= s.id %>">
 				<%= render 'songs/likes', s: s %>
+				Fame: <%= s.fame %>
 			</span>
 
 		<audio class="song_player" src="<%=s.mp3_file.url%>" controls>

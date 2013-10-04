@@ -1,11 +1,8 @@
 
 <% @songs.each do |s| %>
 	<div class="row">
-	<% if @band %>
-			<%= render 'partials/bandMemberOptions', {band: s.band, s: s} %>
-			<%= image_tag(s.band.profile_pic.url, class: "tab_field_pic") %>
-
-		<% end %>
+		<%= render 'partials/bandMemberOptions', {band: s.band, s: s} %>
+		<%= image_tag(s.band.profile_pic.url, class: "tab_field_pic") %>
 
 		<div class="four columns">
 			<h4 class="title"><%= s.title %></h4>					

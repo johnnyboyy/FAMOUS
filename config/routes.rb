@@ -18,6 +18,7 @@ FAMOUS::Application.routes.draw do
   end
   devise_for :users
   resources :users, only: :show
+  resources :likes, only: [:like, :unlike]
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

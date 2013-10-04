@@ -5,8 +5,8 @@ FAMOUS::Application.routes.draw do
 
   resources :songs, only: [:edit, :destroy] do
     member do 
-      post :unlike
-      post :like
+      post 'unlike', to: 'likes#unlike'
+      post 'like', to: 'likes#like'
     end
   end
   resources :bands do 
@@ -18,7 +18,6 @@ FAMOUS::Application.routes.draw do
   end
   devise_for :users
   resources :users, only: :show
-  resources :likes, only: [:like, :unlike]
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

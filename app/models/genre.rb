@@ -1,11 +1,5 @@
 class Genre < ActiveRecord::Base
-
-	# for the genres join table
-	has_many :songs_genre
-	has_many :genres, through: :songs_genre
-
-	# validations
 	
-
-	
+	has_many :songs_genres
+	has_many :songs, through: :songs_genres
 end

@@ -7,9 +7,14 @@ class Song < ActiveRecord::Base
 	has_many :likes, dependent: :destroy
 	has_many :users, through: :likes
 
+<<<<<<< HEAD
 	# for the genres join table
 	has_many :songs_genre
 	has_many :genres, through: :songs_genre
+=======
+	has_many :songs_genres
+	has_many :genres, through: :songs_genres
+>>>>>>> buildGenresForSongs
 
 	# to upload a file using paperclip gem
 	has_attached_file :mp3_file	, default_url: "/blank.mp3"
@@ -24,12 +29,12 @@ class Song < ActiveRecord::Base
 	end
 
 	def genres_list
-  	genres.map(&:name).join(", ")
+  	genres.map(&:name).map(&:titleize).join(", ")
 	end
 
 	def genres_list=(names)
 	  self.genres = names.split(",").map do |n|
-	    Genre.where(name: n.strip).first_or_create!
+	    Genre.where(name: n.strip.downcase).first_or_create!
 	  end
 	end
 

@@ -20,6 +20,7 @@ class SongsController < ApplicationController
 	def create
 		@song = Song.new(song_params)
 		@song.artist = @band.name
+		@song.genres_list = params[:song][:genres_list]
 
 		if @song.save
 			redirect_to band_path(@band), notice: "#{@song.title} was added"
@@ -40,7 +41,7 @@ class SongsController < ApplicationController
 	private
 
 	def song_params
-		params.require(:song).permit(:title, :artist, :band_id, :mp3_file)
+		params.require(:song).permit(:title, :artist, :band_id, :mp3_file, :genres_list)
 	end
 
 	def song_field(current_song)

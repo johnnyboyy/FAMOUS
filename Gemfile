@@ -50,3 +50,6 @@ gem "modernizr-rails"
 
 # Use debugger
 gem 'debugger', group: [:development, :test]
+gem 'omniauth'
+gem 'omniauth-twitter'
+

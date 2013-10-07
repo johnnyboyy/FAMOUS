@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+ 
+
 	has_many :bands_users
 	has_many :bands, through: :bands_users
 	has_many :songs, through: :bands
@@ -20,7 +22,7 @@ class User < ActiveRecord::Base
     where(auth.slice(:provider, :uid)).first_or_create do |user|
       user.provider = auth.provider
       user.uid = auth.uid
-      user.email = auth.info.email
+      
     end
   end       
 
@@ -39,6 +41,10 @@ class User < ActiveRecord::Base
     super && provider.blank?
   end
 
+   # def email_required? #<---to skip email validation
+   #   super && provider.blank?
+   # end
+
   def update_with_password(params, *options)
     if encrypted_password.blank?
       update_attributes(params, *options)
@@ -46,8 +52,9 @@ class User < ActiveRecord::Base
       super
     end
   end
-
   # end of twitter login
+
+
 
   def liked_bands
   	bands = []

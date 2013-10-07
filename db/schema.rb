@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131004053136) do
+ActiveRecord::Schema.define(version: 20131007211316) do
 
   create_table "bands", force: true do |t|
     t.string   "name"
@@ -63,8 +63,8 @@ ActiveRecord::Schema.define(version: 20131004053136) do
   end
 
   create_table "songs_genres", force: true do |t|
-    t.integer  "songs_id"
-    t.integer  "genres_id"
+    t.integer  "song_id"
+    t.integer  "genre_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

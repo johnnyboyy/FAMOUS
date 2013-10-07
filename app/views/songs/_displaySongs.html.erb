@@ -1,7 +1,6 @@
 
 <% @songs.each do |s| %>
 	<div class="row" >
-		<div class="inTab ttip" data-tooltip="<%= truncate(s.genres_list, length: 60) %>">
 			<%= render 'partials/bandMemberOptions', {band: s.band, s: s} %>
 			<%= image_tag(s.band.profile_pic.url, class: "tab_field_pic") %>
 
@@ -20,6 +19,5 @@
 				<p>If you are reading this, it is because your browser does not support the audio element.</p>
 			</audio>
 			</div>
-		</div>
 	</div>
 <% end %>

@@ -16,6 +16,8 @@ FAMOUS::Application.routes.draw do
       post :leave
     end
   end
+  resources :genres
+
   devise_for :users
   resources :users, only: :show
   

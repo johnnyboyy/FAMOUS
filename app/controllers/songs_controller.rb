@@ -1,5 +1,6 @@
 class SongsController < ApplicationController
-	before_action :get_song, only: [:like, :unlike, :destroy]
+	before_action :get_song, only: [:destroy]
+	before_action :get_band, only: [:new, :create]
 
 	# custom actions
 
@@ -12,13 +13,11 @@ class SongsController < ApplicationController
 	end
 
 	def new
-		@band = Band.find(params[:band_id])
 		@song = Song.new
 		@song.band_id = @band.id
 	end
 
 	def create
-		@band = Band.find(params[:band_id])
 		@song = Song.new(song_params)
 		@song.artist = @band.name
 
@@ -50,5 +49,9 @@ class SongsController < ApplicationController
 
 	def get_song
 		@song = Song.find(params[:id])
+	end
+
+	def get_band
+		@band = Band.find(params[:band_id])
 	end
 end

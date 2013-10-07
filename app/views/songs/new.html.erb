@@ -14,7 +14,7 @@
   <% end %>
 
   <div class="row">
-    <div class="eight columns">
+    <div class="six columns centered">
       <fieldset>
         <legend><h2>New Song</h2></legend>
         <ul>
@@ -27,6 +27,10 @@
                 <%= f.label "Song file" %>
                 <%= f.file_field :mp3_file, class: "input" %>
               </li>
+              <div class="field">
+                <%=f.label :genres_list %>
+                <%=f.text_field :genres_list, class: "input" %>
+              </div>
               <li class="medium secondary btn">
                 <%= f.hidden_field :artist %>
                 <%= f.hidden_field :band_id %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131007211316) do
+ActiveRecord::Schema.define(version: 20131007192911) do
 
   create_table "bands", force: true do |t|
     t.string   "name"
@@ -36,8 +36,6 @@ ActiveRecord::Schema.define(version: 20131007211316) do
 
   create_table "genres", force: true do |t|
     t.string   "name"
-    t.integer  "band_id_id"
-    t.integer  "song_id_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -89,6 +87,8 @@ ActiveRecord::Schema.define(version: 20131007211316) do
     t.string   "profile_pic_content_type"
     t.integer  "profile_pic_file_size"
     t.datetime "profile_pic_updated_at"
+    t.string   "provider"
+    t.string   "uid"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

@@ -18,3 +18,4 @@
 /config/database.yml
 /config/initializers/devise.rb
 /db/schema.rb
+db/schema.rb

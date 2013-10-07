@@ -19,5 +19,14 @@ class Song < ActiveRecord::Base
 		self.fame = self.likes.count
 	end
 
+	def genres_list
+  	genres.map(&:name).join(", ")
+	end
+
+	def genres_list=(names)
+	  self.genres = names.split(",").map do |n|
+	    Genre.where(name: n.strip.downcase).first_or_create!
+	  end
+	end
 
 end

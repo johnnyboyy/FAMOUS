@@ -7,6 +7,9 @@ class Song < ActiveRecord::Base
 	has_many :likes, dependent: :destroy
 	has_many :users, through: :likes
 
+	has_many :songs_genres
+	has_many :genres, through: :songs_genres
+
 	# to upload a file using paperclip gem
 	has_attached_file :mp3_file	, default_url: "/blank.mp3"
 

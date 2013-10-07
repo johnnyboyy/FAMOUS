@@ -7,14 +7,10 @@ class Song < ActiveRecord::Base
 	has_many :likes, dependent: :destroy
 	has_many :users, through: :likes
 
-<<<<<<< HEAD
-	# for the genres join table
-	has_many :songs_genre
-	has_many :genres, through: :songs_genre
-=======
+	# to allow songs to have genres through the
+	# join table -- songs_genres
 	has_many :songs_genres
 	has_many :genres, through: :songs_genres
->>>>>>> buildGenresForSongs
 
 	# to upload a file using paperclip gem
 	has_attached_file :mp3_file	, default_url: "/blank.mp3"

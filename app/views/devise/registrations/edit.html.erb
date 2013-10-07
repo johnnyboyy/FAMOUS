@@ -26,11 +26,13 @@
               <%= f.label :password_confirmation %>
               <%= f.password_field :password_confirmation, class: "xwide input" %>
             </li>
-            <li class="field">
-              <%= f.label :current_password %>
-              <%= f.password_field :current_password, class: "xwide input" %><br />
-              <span>(we need your current password to confirm your changes)</span>  
-            </li>
+            <% if f.object.encrypted_password.present? %> 
+              <li class="field">
+                <%= f.label :current_password %>
+                <%= f.password_field :current_password, class: "xwide input" %><br />
+                <span>(we need your current password to confirm your changes)</span>  
+              </li>
+            <% end %>
             <li>
               <div class="medium secondary btn"><%= f.submit 'Update'%>
             </li>

@@ -17,8 +17,9 @@ FAMOUS::Application.routes.draw do
     end
   end
   resources :genres
+  
+  devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
 
-  devise_for :users
   resources :users, only: :show
   
   # The priority is based upon order of creation:

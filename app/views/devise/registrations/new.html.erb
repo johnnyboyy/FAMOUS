@@ -20,14 +20,16 @@
                 <%=f.label :last_name %>
                 <%=f.text_field :last_name, class: "xwide input" %>
               </li>
-              <li class="field">
-	              <%= f.label :password %>
-	 							<%= f.password_field :password, class: "xwide input" %>
-              </li>
-              <li class="field">
-                <%= f.label :password_confirmation %>
-                <%= f.password_field :password_confirmation, class: "xwide input" %>
-              </li>
+              <% if f.object.password_required? %>  
+                <li class="field">
+  	              <%= f.label :password %>
+  	 							<%= f.password_field :password, class: "xwide input" %>
+                </li>
+                <li class="field">
+                  <%= f.label :password_confirmation %>
+                  <%= f.password_field :password_confirmation, class: "xwide input" %>
+                </li>
+              <% end %>
               <li class="medium secondary btn">
                 <%= f.submit 'Sign Up!' %>
               </li>

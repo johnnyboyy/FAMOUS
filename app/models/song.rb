@@ -23,7 +23,7 @@ class Song < ActiveRecord::Base
 	end
 
 	def genres_list
-  	genres.map(&:name).join(", ")
+  	genres.map(&:name).map(&:titleize).join(", ")
 	end
 
 	def genres_list=(names)

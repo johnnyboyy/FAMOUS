@@ -29,8 +29,9 @@
 									<%= image_tag(m.profile_pic.url, class: "tab_field_pic") %>
 
 									<h4><%= link_to m.name, user_path(m) %></h4>
-									<p>Other Bands: <%= members_bands(m) %>
-										</p>
+									<p>Bands: 
+										<%= members_bands(m) %>
+									</p>
 								</li>
 							<% end %>
 						</ul>

@@ -12,22 +12,25 @@
  *= require_tree .
  */
 
+ .tab_field{
+ 	min-height: 100px;
+ }
 
-	.profile_pic {
-		width: 300px;
-		height: 300px;
-	}
+.profile_pic {
+	width: 300px;
+	height: 300px;
+}
 
-	.tab_field_pic {
-		float: left;
-		width: 100px;
-		height: 100px;
-		margin-right: 20px;
-	}
+.tab_field_pic {
+	float: left;
+	width: 100px;
+	height: 100px;
+	margin-right: 20px;
+}
 
-	.btn {
-		border-radius: 4px;
-	}
+.btn {
+	border-radius: 4px;
+}
 
 
 

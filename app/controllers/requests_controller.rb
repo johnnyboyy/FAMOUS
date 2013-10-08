@@ -13,13 +13,12 @@ class RequestsController < ApplicationController
 
 
   def create
-    @request = Request.new(request_params)
+    @band = Band.find(params[:band_id])
     send_message_to_band_members
-
-    if @request.save
+    if @band.users.first.requests.map(&:sender).include?(current_user.id)
       redirect_to current_user, notice: "Request has been sent."
     else
-      flash.now[:alert] = "We couldn't send the request."
+      flash.now[:alert] = "We couldn't send the request. Please try again."
       render 'new'
     end
   end
@@ -28,7 +27,7 @@ class RequestsController < ApplicationController
     @request = Request.find(params[:request_id])
     @band = Band.find(@request.band_id)
 
-    if current_user.id == @request.reciever
+    if @band.users.include?(current_user)
       @band.users << User.find(@request.sender)
       Request.where(sender: @request.sender).where(band_id: @request.band_id).map(&:destroy)
     end
@@ -39,7 +38,6 @@ class RequestsController < ApplicationController
       flash.now[:alert] = "We couldn't add #{requester_name(@request)}."
       render band_path(@band)
     end
-
 
   end
 
@@ -57,11 +55,13 @@ class RequestsController < ApplicationController
 
     def send_message_to_band_members
       Band.find(params[:band_id]).users.each do |mem|
-        @request.request_type = 'member_request'
-        @request.status = 'pending'
-        @request.sender = current_user.id
-        @request.reciever = mem.id
-        @request.band_id = params[:band_id]
+        req = Request.new(request_params)
+        req.request_type = 'member_request'
+        req.status = 'pending'
+        req.sender = current_user.id
+        req.reciever = mem.id
+        req.band_id = params[:band_id]
+        req.save
       end
     end
 

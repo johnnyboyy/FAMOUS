@@ -9,7 +9,7 @@ class BandsController < ApplicationController
   def show
 		@members = @band.users
 		@songs = @band.songs.order("fame DESC")
-
+    @band_requests = Request.where(band_id: @band.id).where(status: 'pending').where(reciever: current_user)
   end
 
   def new
@@ -57,7 +57,6 @@ class BandsController < ApplicationController
   end
 
   def join
-  	@band.users << current_user
   	redirect_to @band
   end
 

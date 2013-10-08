@@ -18,26 +18,23 @@
 			  <li class="tab">
 			  	<a href="#">Band Members</a>
 			  </li>
-				<div class="tab-content active">
-		        <%= render 'songs/displaySongs' %>
-		    </div>
-		    <div class="tab-content">
-		    	<div class="content_holder">
-						<ul>
-							<% @members.each do |m| %>
-								<li>
-									<%= image_tag(m.profile_pic.url, class: "tab_field_pic") %>
-
-									<h4><%= link_to m.name, user_path(m) %></h4>
-									<p>Other Bands: <%= members_bands(m) %>
-										</p>
-								</li>
-							<% end %>
-						</ul>
-					</div>	
-				</div>
+		  <% if user_signed_in? && @band.users.include?(current_user) %>
+			  <li class="tab">
+			  <a href='#'>Member Requests </a>
+			  </li>
+		  <% end %>
 			</ul>
-
+			<div class="tab-content active">
+	        <%= render 'songs/displaySongs' %>
+	    </div>
+	    <div class="tab-content">
+	    	<%= render 'bands/bandMembersTab', members: @members %> 
+			</div>
+		<% if user_signed_in? && @band.users.include?(current_user) %>
+			<div class="tab-content">
+				<%= render 'requests/bandMemberRequestsTab', band_requests: @band_requests %>
+			</div>
+		<% end %>
 		</section>
 
 

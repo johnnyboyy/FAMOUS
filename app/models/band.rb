@@ -3,6 +3,7 @@ class Band < ActiveRecord::Base
 	has_many :users, through: :bands_users
 	has_many :songs, dependent: :destroy
 
+
 	validates_associated :songs
 	validates :name, presence: true
 
@@ -15,5 +16,6 @@ class Band < ActiveRecord::Base
 		self.fame = fame
 		fame
 	end
+
 
 end

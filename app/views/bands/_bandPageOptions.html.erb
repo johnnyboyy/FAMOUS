@@ -12,7 +12,7 @@
 
 			
 		<% else %>
-			<li><%= link_to 'Join ' + @band.name, join_band_path, method: :post %></li>
+			<li><%= link_to 'Join ' + @band.name, new_band_request_path(user_id: current_user.id, band_id: @band.id) %></li>
 		<% end %>
 	</ul>
 </div>

@@ -10,6 +10,7 @@ FAMOUS::Application.routes.draw do
     end
   end
   resources :bands do 
+    resources :requests, only: [:new, :create, :update, :destroy]
     resources :songs, only: [:new, :create]
     member do 
       post :join

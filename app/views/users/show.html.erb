@@ -30,7 +30,13 @@
 			  	<div class="tab-content">
 			  		<%= render 'bands/bandtab' %>
 			    </div>
-
+			    <div class="tab-content">
+			  		<% @venues.each do |v| %>
+			  			<%= v.name %><br>		
+			  			<%= image_tag(v.image.url) %>	  			
+			  		<% end %>
+			    </div>
+			    
 				</ul>
 
 			</section>

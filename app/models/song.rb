@@ -34,4 +34,7 @@ class Song < ActiveRecord::Base
 	  end
 	end
 
+	def song_of_the_day
+		Song.where(:fame => self.fame.max)
+	end
 end

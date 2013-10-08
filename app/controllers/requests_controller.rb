@@ -32,7 +32,7 @@ class RequestsController < ApplicationController
       Request.where(sender: @request.sender).where(band_id: @request.band_id).map(&:destroy)
     end
 
-    if @band.save && @request.save
+    if @band.save
       redirect_to band_path(@band), notice: "#{requester_name(@request)} has joined the band!" 
     else
       flash.now[:alert] = "We couldn't add #{requester_name(@request)}."

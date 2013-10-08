@@ -3,9 +3,14 @@
 	<div class="three columns">
 		<h2> #Trending </h2>
 		<h3> Today </h4><br>
-		<h4> <%= link_to @topsong.title, band_path(@topsong) %> </h4>
+		<% if Song.any? %>
+			<h4> <%= link_to @topsong.title, band_path(@topsong) %> </h4>
+		<% end %>
 		<h3> This Week </h3><br>
-		<h4> <%= link_to @topsongoftheweek.title, band_path(@topsongoftheweek) %> </h4>
+		<% if Song.any? %>
+
+			<h4> <%= link_to @topsongoftheweek.title, band_path(@topsongoftheweek) %> </h4>
+		<% end %>
 	</div>
 
 	<div class="nine columns">

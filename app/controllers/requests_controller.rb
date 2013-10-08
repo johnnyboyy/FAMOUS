@@ -13,16 +13,10 @@ class RequestsController < ApplicationController
 
 
   def create
-    request = Request.new(request_params)
-    Band.find(params[:band_id]).users.each do |mem|
-      request.request_type = 'member_request'
-      request.status = 'pending'
-      request.sender = current_user.id
-      request.reciever = mem.id
-      request.band_id = params[:band_id]
-    end
+    @request = Request.new(request_params)
+    send_message_to_band_members
 
-    if request.save
+    if @request.save
       redirect_to current_user, notice: "Request has been sent."
     else
       flash.now[:alert] = "We couldn't send the request."
@@ -47,5 +41,15 @@ class RequestsController < ApplicationController
 
   def request_params
     params.require(:request).permit(:message)
+  end
+
+  def send_message_to_band_members
+    Band.find(params[:band_id]).users.each do |mem|
+      @request.request_type = 'member_request'
+      @request.status = 'pending'
+      @request.sender = current_user.id
+      @request.reciever = mem.id
+      @request.band_id = params[:band_id]
+    end
   end
 end

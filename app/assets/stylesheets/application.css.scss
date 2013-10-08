@@ -8,16 +8,10 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require gumby
  *= require_self
  *= require_tree .
  */
 
-
-
- // .content_holder {
- // 	min-height: 80px;
- // }
 
 	.profile_pic {
 		width: 300px;
@@ -31,8 +25,8 @@
 		margin-right: 20px;
 	}
 
-	.inTab {
-		color: rgb(85, 85, 85);
+	.btn {
+		border-radius: 4px;
 	}
 
 

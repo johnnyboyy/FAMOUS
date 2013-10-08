@@ -289,7 +289,7 @@ h1 small, h2 small, h3 small, h4 small, h5 small {
 /*  Blockquotes  */
 blockquote {
   line-height: 20px;
-  color: #010101;
+  color: #777;
   margin: 0 0 18px;
   padding: 9px 20px 0 19px;
   border-left: 5px solid #cccccc; }
@@ -2591,7 +2591,7 @@ img {
   .btn > a, .btn input, .btn button, .skiplink > a, .skiplink input, .skiplink button {
     display: block;
     padding: 0 18px;
-    color: white;
+    color: #3A3A3A;
     height: 100%; }
   .btn input, .btn button, .skiplink input, .skiplink button {
     background: none;
@@ -2750,11 +2750,11 @@ img {
   .btn.success:active, .skiplink.success:active {
     background: #44951e; }
 .btn.metro, .metro .btn, .metro .skiplink, .btn.metro:hover, .skiplink.metro:hover, .btn.metro:active, .skiplink.metro:active, .skiplink.metro {
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  -ms-border-radius: 0;
-  -o-border-radius: 0;
-  border-radius: 0; }
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px; }
   .btn.metro.rounded, .metro .rounded.btn, .metro .rounded.skiplink, .rounded.skiplink.metro:hover, .rounded.skiplink.metro:active, .skiplink.metro.rounded {
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
@@ -2768,11 +2768,11 @@ img {
   -o-border-radius: 4px;
   border-radius: 4px; }
   .btn.pretty.squared, .pretty .squared.btn, .pretty .squared.skiplink, .squared.skiplink.pretty:hover, .squared.skiplink.pretty:active, .skiplink.pretty.squared {
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    -ms-border-radius: 0;
-    -o-border-radius: 0;
-    border-radius: 0; }
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px; }
 
 .btn.pretty.primary, .pretty .primary.btn, .pretty .primary.skiplink, .primary.skiplink.pretty:hover, .primary.skiplink.pretty:active, .skiplink.pretty.primary {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffe466), color-stop(100%, #ffd200));
@@ -6152,67 +6152,6 @@ body .video {
       filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
       opacity: 1; }
 
-table {
-  display: table;
-  background-color: white;
-  border-collapse: collapse;
-  border-spacing: 0;
-  margin-bottom: 20px;
-  width: 100%;
-  border: 1px solid #e5e5e5; }
-  table caption {
-    text-align: center;
-    font-size: 30px;
-    padding: .75em; }
-  table thead th,
-  table tbody td,
-  table tr td {
-    display: table-cell;
-    padding: 10px;
-    vertical-align: top;
-    text-align: left;
-    border-top: 1px solid #e5e5e5; }
-  table tr td, table tbody tr td {
-    font-size: 16px; }
-  table tr td:first-child {
-    font-weight: bold; }
-  table thead {
-    background-color: #ffd200;
-    color: #fff; }
-    table thead tr th {
-      font-size: 16px;
-      font-weight: bold;
-      vertical-align: bottom; }
-  table.striped tr:nth-of-type(even),
-  table table tr.stripe,
-  table table tr.striped {
-    background-color: #e5e5e5; }
-  table.rounded {
-    border-radius: 4px;
-    border-collapse: separate; }
-    table.rounded caption + thead tr:first-child th:first-child,
-    table.rounded caption + tr td:first-child,
-    table.rounded > thead tr:first-child th:first-child,
-    table.rounded > thead tr:first-child td:first-child,
-    table.rounded > tr:first-child td:first-child {
-      border-top-left-radius: 4px; }
-    table.rounded caption + thead tr:first-child th:last-child,
-    table.rounded caption + tr td:last-child,
-    table.rounded > thead tr:first-child th:last-child,
-    table.rounded > thead tr:first-child td:last-child,
-    table.rounded > tr:first-child td:last-child {
-      border-top-right-radius: 4px; }
-    table.rounded thead ~ tr:last-child td:last-child,
-    table.rounded tbody tr:last-child td:last-child {
-      border-bottom-right-radius: 4px; }
-    table.rounded thead ~ tr:last-child td:first-child,
-    table.rounded tbody tr:last-child td:first-child {
-      border-bottom-left-radius: 4px; }
-    table.rounded thead th, table.rounded thead td,
-    table.rounded caption + tbody tr:first-child td,
-    table.rounded > tbody:first-child tr:first-child td {
-      border-top: 0; }
-
 /* Tooltips */
 .ttip {
   position: relative;
@@ -6236,7 +6175,7 @@ table {
     bottom: 101%;
     margin-bottom: 8px;
     text-align: left;
-    color: #010101;
+    color: #3A3A3A;
     content: attr(data-tooltip);
     line-height: 1.5;
     font-size: 16px;
@@ -6272,7 +6211,7 @@ table {
     -o-transition: all 0.1s ease;
     transition: all 0.1s ease;
     filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
-    opacity: 0.85; }
+    opacity: 1; }
 
 @media only screen and (max-width: 768px) {
   .ttip:after, .ttip:before {

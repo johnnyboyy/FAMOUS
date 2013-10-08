@@ -4,5 +4,6 @@ class UsersController < ApplicationController
 		@user = current_user
 		@songs = @user.songs
 		@bands = @user.liked_bands
+    @venues = @user.venues
 	end
 end

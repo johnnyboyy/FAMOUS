@@ -1,0 +1,30 @@
+<div class="row">
+	<div class="four columns">
+		<h1> Venues </h1>
+		<% if user_signed_in? %>
+			<%= link_to 'Add Your Venue', new_venue_path %>
+		<% end %>
+	</div>
+
+	<div class="push_two six columns">
+		<ul class="songlist">
+
+			<% @venues.each do |b| %>
+				<li>
+				  <div class="row">
+				    <div class="four columns" id="song_info">
+							<h4><%= b.name %></h4>
+							<p><%= b.address %></p>
+							<%= image_tag(b.image.url) %>
+				    </div>
+				    <div class="push_two five columns">				
+							<%= link_to 'Remove', b, method: :delete, confirm: "are you sure?" %>
+				    </div> 
+				  </div>
+
+				 </li>
+			<% end %>
+
+		</ul>
+	</div>
+</div>

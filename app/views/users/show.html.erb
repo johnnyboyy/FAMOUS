@@ -21,7 +21,9 @@
 					<li class="tab">
 				  	<a href="#" class="tab">Liked Bands</a>
 				  </li>
-
+				  <li class="tab">
+				  	<a href= "#" class="tab">My Venues</a>
+				  </li>
 					<div class="tab-content active">
 			        <%= render 'songs/displaySongs' %>
 			    </div>
@@ -44,6 +46,9 @@
 				<li>
 					<%= link_to "Edit account", edit_user_registration_path %>
 				</li>
+				<li>
+					<%= link_to "Add A Venue", new_venue_path %>
+				</li> 
 			</ul>
 		</div>
 	</fieldset>

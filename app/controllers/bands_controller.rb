@@ -71,7 +71,7 @@ class BandsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to current_user, notice: "You deleted your band: #{@band.name}" }
-      format.json { head :no_content }
+      #format.json { head :no_content }
     end
   end
 

@@ -1,0 +1,48 @@
+
+
+<%= form_for(@venue) do |f| %>
+
+  <% if @venue.errors.any? %>
+    <div id="error_explanation">
+      <h4><%= pluralize(@band.errors.count, "error") %> prohibited this product from being saved:</h4>
+
+      <ul>
+      <% @venue.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+  <div class="row">
+    <div class="eight columns">
+      <fieldset>
+        <legend><h2>New Venue</h2></legend>
+        <ul>
+            <ul>
+              <li class="field">
+                <%= f.label :name %><br>
+                <%= f.text_field :name, class: "input" %>
+              </li>
+              <li class="field">
+                <%=f.label :address %>
+                <%=f.text_field :address, class: "input" %>
+                 
+              </li>
+              <li class="field">
+              	<%=f.label :image %><br>
+              	<%=f.file_field :image %>
+              </li> 	
+              <li class="medium secondary btn">
+                <%= f.submit  %>
+              </li>
+            </ul>
+        </ul>
+      </fieldset>
+    </div>
+  </div>
+
+
+<% end %>

@@ -18,14 +18,17 @@
 			  <li class="tab">
 			  	<a href="#">Band Members</a>
 			  </li>
+			  <li class="tab">
+			  <a href='#'>Member Requests </a>
+			  </li>
 				<div class="tab-content active">
 		        <%= render 'songs/displaySongs' %>
 		    </div>
 		    <div class="tab-content">
-		    	<div class="content_holder">
+		    	<div class="row">
 						<ul>
 							<% @members.each do |m| %>
-								<li>
+								<li class=" twelve columns pull_left">
 									<%= image_tag(m.profile_pic.url, class: "tab_field_pic") %>
 
 									<h4><%= link_to m.name, user_path(m) %></h4>
@@ -35,7 +38,20 @@
 								</li>
 							<% end %>
 						</ul>
-					</div>	
+					</div>
+				</div>
+				<div class="tab-content">
+					<div class="content_holder">
+						<ul>
+						<% @band_requests.each do |req| %>
+						<li>							
+							<h3><%= sender_name(req) %></h3>
+							<p><%= link_to 'Accept', band_request_path(band_id: @band, request_id: req.id), method: :patch%></p>
+							</li>
+						<% end %>
+						</ul>
+					</div>
+				</div>	
 				</div>
 			</ul>
 

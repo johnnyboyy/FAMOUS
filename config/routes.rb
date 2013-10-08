@@ -10,6 +10,7 @@ FAMOUS::Application.routes.draw do
     end
   end
   resources :bands do 
+    resources :requests, only: [:new, :create]
     resources :songs, only: [:new, :create]
     member do 
       post :join
@@ -17,6 +18,7 @@ FAMOUS::Application.routes.draw do
     end
   end
   resources :genres
+  resources :requests, only: :destroy
   
   devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
 

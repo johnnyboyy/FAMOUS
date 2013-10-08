@@ -1,0 +1,37 @@
+
+<%= form_for([@band, @request]) do |f| %>
+
+  <% if @request.errors.any? %>
+    <div id="error_explanation">
+      <h4><%= pluralize(@request.errors.count, "error") %> prohibited this product from being saved:</h4>
+
+      <ul>
+      <% @request.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="row">
+    <div class="six columns centered">
+      <fieldset>
+        <legend><h2>Member Request</h2></legend>
+        <ul>
+            <ul>
+              <li class="field">
+                <%=f.label :message %>
+                <%=f.text_area :message, class: "input textarea" %>
+              </li>
+              <li class="medium secondary btn">
+                <%= f.submit %>
+              </li>
+            </ul>
+        </ul>
+      </fieldset>
+    </div>
+  </div>
+
+
+<% end %>

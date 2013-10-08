@@ -57,7 +57,6 @@ class BandsController < ApplicationController
   end
 
   def join
-  	@band.users << current_user
   	redirect_to @band
   end
 

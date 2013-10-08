@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
  
-
 	has_many :bands_users
 	has_many :bands, through: :bands_users
+
 	has_many :songs, through: :bands
 
 	has_many :likes
@@ -15,6 +15,11 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :rememberable, :trackable, :validatable
+
+
+
+  has_many :requests, foreign_key: :sender
+  has_many :requests, source: :user, foreign_key: :reciever
 
 
   # start of twitter logins
@@ -65,4 +70,9 @@ class User < ActiveRecord::Base
   def name
     return "#{first_name} #{last_name}"
   end
+
+  def recieved_requests
+    Request.where(reciever: self)
+  end
+
 end

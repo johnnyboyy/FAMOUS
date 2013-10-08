@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131007192911) do
+ActiveRecord::Schema.define(version: 20131008172248) do
 
   create_table "bands", force: true do |t|
     t.string   "name"
@@ -43,6 +43,17 @@ ActiveRecord::Schema.define(version: 20131007192911) do
   create_table "likes", force: true do |t|
     t.integer  "user_id"
     t.integer  "song_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "requests", force: true do |t|
+    t.string   "request_type"
+    t.integer  "band_id"
+    t.string   "status"
+    t.integer  "sender"
+    t.integer  "reciever"
+    t.text     "message"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

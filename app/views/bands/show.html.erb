@@ -22,13 +22,15 @@
 		        <%= render 'songs/displaySongs' %>
 		    </div>
 		    <div class="tab-content">
-		    	<div class="band_members">
+		    	<div class="content_holder">
 						<ul>
 							<% @members.each do |m| %>
 								<li>
 									<%= image_tag(m.profile_pic.url, class: "tab_field_pic") %>
 
-									<h3><%= link_to m.name, user_path(m) %></h3>
+									<h4><%= link_to m.name, user_path(m) %></h4>
+									<p>Other Bands: <%= members_bands(m) %>
+										</p>
 								</li>
 							<% end %>
 						</ul>

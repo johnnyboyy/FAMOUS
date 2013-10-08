@@ -16,7 +16,10 @@ FAMOUS::Application.routes.draw do
       post :leave
     end
   end
-  devise_for :users
+  resources :genres
+  
+  devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
+
   resources :users, only: :show
   resources :venues
 

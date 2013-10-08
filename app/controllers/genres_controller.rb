@@ -2,14 +2,13 @@ class GenresController < ApplicationController
 
 	def index
 		@genres = Genre.all
-	end
-
-	def new
-		@genre = Genre.new
+		@new_genre = Genre.new
 	end
 
 	def create
-		@genre = Genre.build(genre_params)
+		@genre = Genre.new(genre_params)
+		@genre.save
+		redirect_to genres_path
 	end
 
 

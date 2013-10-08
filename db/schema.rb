@@ -13,6 +13,8 @@
 
 ActiveRecord::Schema.define(version: 20131008000812) do
 
+
+
   create_table "bands", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -36,8 +38,6 @@ ActiveRecord::Schema.define(version: 20131008000812) do
 
   create_table "genres", force: true do |t|
     t.string   "name"
-    t.integer  "band_id_id"
-    t.integer  "song_id_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -63,8 +63,8 @@ ActiveRecord::Schema.define(version: 20131008000812) do
   end
 
   create_table "songs_genres", force: true do |t|
-    t.integer  "songs_id"
-    t.integer  "genres_id"
+    t.integer  "song_id"
+    t.integer  "genre_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -89,6 +89,8 @@ ActiveRecord::Schema.define(version: 20131008000812) do
     t.string   "profile_pic_content_type"
     t.integer  "profile_pic_file_size"
     t.datetime "profile_pic_updated_at"
+    t.string   "provider"
+    t.string   "uid"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

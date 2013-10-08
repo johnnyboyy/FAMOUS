@@ -8,35 +8,10 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require gumby
  *= require_self
  *= require_tree .
  */
 
-
-
-
-
-
-// li#content_holder {
-// 	float: left;
-// 	padding-bottom: 20px;
-// 	border-bottom: 1px solid black;
-// 	min-height: 100px;
-// 	width: 100%;
-
-// 	.track_info {
-// 		word-wrap: break-word;
-
-// 	}
-
-// 	h4.title{
-// 		width: 300px;
-// 	}
-
-	h5.artist {
-		margin-left: 20px;
-	}
 
 	.profile_pic {
 		width: 300px;
@@ -50,8 +25,9 @@
 		margin-right: 20px;
 	}
 
+	.btn {
+		border-radius: 4px;
+	}
 
 
-
-// }
 

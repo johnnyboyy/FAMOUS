@@ -8,6 +8,14 @@ audio.song_player{
 	clear: right;
 }
 
+h5.artist {
+	margin-left: 20px;
+}
+
+p.genres {
+	font-size: 11pt;
+}
+
 div {
 	a.x-button {
 		float: right;
@@ -25,5 +33,11 @@ span.likes {
 
 	div {
 		float: right;
+	}
+
+	span.btn {
+		a{
+			color: rgba(45, 45, 45, 0.75);
+		}
 	}
 }

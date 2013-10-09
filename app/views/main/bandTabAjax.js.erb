@@ -1,0 +1,4 @@
+
+$(document).ready(function(){
+  $("div.tab-content").eq(1).append("<%= escape_javascript(render(:partial => 'bands/bandtab', locals: {bands: @bands} )) %>");
+});

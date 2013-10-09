@@ -12,9 +12,9 @@
  *= require_tree .
  */
 
- .tab_field{
- 	min-height: 100px;
- }
+.tab_field{
+	min-height: 100px;
+}
 
 .profile_pic {
 	width: 300px;
@@ -32,5 +32,28 @@
 	border-radius: 4px;
 }
 
+.wrapper {
+  background: #eee;
+}
 
+#inner-nav {
+  padding: 5px 0;
+
+  .snav {
+    float: none;
+    margin: 0 10px;
+    border: none;
+    min-width: 150px;
+    font-size: 10pt;
+  }
+
+  .nav-btn {
+    float: right;
+  }
+}
+
+.navbar-margin {
+  margin-bottom: 20px;
+
+}
 

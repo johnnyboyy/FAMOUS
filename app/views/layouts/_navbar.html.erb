@@ -1,36 +1,43 @@
 
 <div class="navbar" id="nav1">
   <div class="row">
-    <a class="toggle" gumby-trigger="#nav1 > .row > ul" href="#"><i class="icon-menu"></i></a>
-    <h1 class="four columns logo">
+    <a class="toggle" gumby-trigger="#nav1 > .row > div > ul" href="#"><i class="icon-menu"></i></a>
+    <h1 class="two columns logo">
         <%= link_to image_tag("Logo.png"), :root %>
     </h1>
-    <ul class="eight columns pull_right">
-     <% if user_signed_in? %>
-      <li>
-        <%= link_to current_user.email, user_path(current_user) %>
-      </li>
 
 
-      <li>
-        <a href="#"><i class="icon-cog" id="nav_font"> </i></a>
-        <div class="dropdown">
-          <ul>         
-            <li><%= link_to "Edit Account", edit_user_registration_path %>
-            </li>
-            <li><%= link_to "Log out", destroy_user_session_path(user_session), method: :delete %></li>
-          </ul>
-        </div>
-      </li>
+  <% if user_signed_in? %>
+    <div class="nine columns">
+      <ul>
+<!--         <li class="field">
+          <input class="search input" type="search" placeholder="Search" />
+        </li> --> 
+        <li >
+          <%= link_to current_user.email, user_path(current_user) %>
+        </li>
+        <li><span>|</span></li>
+        <li>
+         <%= link_to "Log out", destroy_user_session_path(user_session), method: :delete %>
+        </li>
+          </div>
+        </li> 
+      </ul>
+    </div>
 
 
-      <% else %>
+
+  <% else %>
+    <div class="push_four four columns pull_right">
+      <ul>
         <li><%= link_to "Sign up", new_user_registration_path %></li>
         <li><%= link_to "Sign in", new_user_session_path %></li>
-      <% end %>
-      <li><a href="#">Customize</a></li>
-      <li class="field"><input class="search input" type="search" placeholder="Search" /></li>
-    </ul>
+<!--         <li class="field"><input class="search input" type="search" placeholder="Search" /></li> -->
+      </ul>
+    </div>
+  <% end %>
+
+
   </div>
 </div>
 

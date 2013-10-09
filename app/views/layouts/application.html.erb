@@ -14,6 +14,11 @@
 <body>
 
 	<%= render 'layouts/navbar' %>
+  <% if @page_options %>
+    <%= render 'layouts/subNavbar' %>
+  <% end %>
+
+  <div class="navbar-margin"></div>
 
 	<% if flash[:notice] %>
 		<p id="notice"><%= flash[:notice] %></p>

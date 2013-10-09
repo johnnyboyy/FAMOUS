@@ -1,18 +1,42 @@
-<div class="two column">
-	<ul>
-		<% if @band.users.include?(current_user) %>
 
-			<li><%= link_to "New Song", new_band_song_path(params[:id]) %></li>
-			<li><%= link_to 'Leave ' + @band.name, leave_band_path, method: :post %></li>
-			<li><a href="#" class="member_options_toggle">Edit Songs</a></li>
-			<li><%= link_to "Edit Band", edit_band_path(@band) %></li>
-			<li>
-			<%= link_to 'Delete Band', @band, method: :delete, confirm: "are you sure?" %>
-			</li>
+<% if @band.users.include?(current_user) %>
 
-			
-		<% else %>
-			<li><%= link_to 'Join ' + @band.name, new_band_request_path(user_id: current_user.id, band_id: @band.id) %></li>
-		<% end %>
-	</ul>
-</div>
+	<li class="nav-btn">
+	  <div class="snav medium danger btn">
+	    <%= link_to 'Delete Band', @band, method: :delete, confirm: "are you sure?" %>
+	  </div>
+	</li>
+	<li class="nav-btn">
+	  <div class="snav medium danger btn">
+	    <%= link_to "Leave '#{@band.name}'", leave_band_path, method: :post %>
+	  </div>
+	</li>
+
+	<li class="nav-btn">
+	  <div class="snav medium primary btn">
+	    <a href="#" class="member_options_toggle">Edit Songs</a>
+	  </div>
+	</li>
+	<li class="nav-btn">
+	  <div class="snav medium primary btn">
+	    <%= link_to "Edit Band", edit_band_path(@band) %>
+	  </div>
+	</li>
+	<li class="nav-btn">
+	  <div class="snav medium secondary btn">
+	    <%= link_to "New Song", new_band_song_path(params[:id]) %>
+	  </div>
+	</li>
+
+<% else %>
+
+	<li class="nav-btn">
+	  <div class="snav medium secondary btn">
+	    <%= link_to 'Join ' + @band.name, new_band_request_path(user_id: current_user.id, band_id: @band.id) %>
+	  </div>
+	</li>
+
+<% end %>
+
+
+

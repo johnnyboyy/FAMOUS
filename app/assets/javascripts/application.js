@@ -15,3 +15,4 @@
 //= require jquery_ujs
 //= require modernizr
 //= require gumby.min
+//= require bands

@@ -10,6 +10,9 @@ class BandsController < ApplicationController
 		@members = @band.users
 		@songs = @band.songs.order("fame DESC")
     @band_requests = Request.where(band_id: @band.id).where(status: 'pending').where(reciever: current_user)
+    if user_signed_in?
+      @page_options = 'bands/bandPageOptions'
+    end
   end
 
   def new

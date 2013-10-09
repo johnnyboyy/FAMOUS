@@ -5,5 +5,8 @@ class UsersController < ApplicationController
 		@songs = @user.songs
 		@bands = @user.liked_bands
     @venues = @user.venues
+    @page_options = 'users/pageOptions'
 	end
+
+
 end

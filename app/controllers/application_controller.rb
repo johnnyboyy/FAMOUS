@@ -24,4 +24,8 @@ class ApplicationController < ActionController::Base
   def song_field(current_song)
     # gets overriden by bands and songs controllers
   end
+
+  def page_options
+    # overriden by other controllers
+  end
 end

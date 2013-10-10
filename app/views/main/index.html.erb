@@ -4,12 +4,12 @@
 		<h2> #Trending </h2>
 		<h3> Today </h4><br>
 		<% if Song.any? %>
-			<h4> <%= link_to @topsong.title, band_path(@topsong) %> </h4>
+			<h4> <%= link_to @topsong.title, band_path(@topsong.band) %> </h4>
 		<% end %>
 		<h3> This Week </h3><br>
 		<% if Song.any? %>
 
-			<h4> <%= link_to @topsongoftheweek.title, band_path(@topsongoftheweek) %> </h4>
+			<h4> <%= link_to @topsongoftheweek.title, band_path(@topsongoftheweek.band) %> </h4>
 		<% end %>
 	</div>
 

@@ -15,7 +15,7 @@ class Request < ActiveRecord::Base
   end
   def request_type_must_be_correct
     if request_type != "member_request"
-      errors.add(:status, "must be set to pending!")
+      errors.add(:status, "must be set to member_request!")
     end
   end
   

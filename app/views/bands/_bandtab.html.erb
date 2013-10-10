@@ -2,15 +2,15 @@
 <div class="row" id="list_row">
 	<div class="twelve columns" id="song_info">
 		<% @bands.each do |b| %>
-			<div class="content_holder">
+			<div class="tab_field">
 
-			<%= image_tag(b.profile_pic.url, class: "tab_field_pic") %>
+				<%= image_tag(b.profile_pic.url, class: "tab_field_pic") %>
 
 				<h4><%= link_to b.name, b %></h4>
 
 					
 					Fame: <%= b.fame %>
-				</div>
+			</div>
 		<% end %>
 	</div>
 </div>

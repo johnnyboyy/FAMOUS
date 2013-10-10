@@ -50,6 +50,7 @@ class BandsController < ApplicationController
   def update
     respond_to do |format|
       if @band.update(band_params)
+        
         format.html { redirect_to @band, notice: 'band was successfully updated.' }
         format.json { head :no_content }
       else

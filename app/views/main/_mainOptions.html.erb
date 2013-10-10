@@ -1,0 +1,8 @@
+
+<% @five_or_under.times do |i| %>
+  <li class="nav-btn">
+    <div class="snav medium primary btn">
+     <%= link_to "#{@genres[i].name.titleize}", :root, params.merge(genre: {sort_by: "#{@genres[i].name}"}) %>
+    </div>
+  </li>
+<% end %>

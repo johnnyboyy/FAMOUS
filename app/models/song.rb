@@ -11,6 +11,8 @@ class Song < ActiveRecord::Base
 	# join table -- songs_genres
 	has_many :songs_genres
 	has_many :genres, through: :songs_genres
+	after_save :update_genres
+
 
 	# to upload a file using paperclip gem
 	has_attached_file :mp3_file	, default_url: "/blank.mp3"
@@ -34,7 +36,9 @@ class Song < ActiveRecord::Base
 	  end
 	end
 
-	def song_of_the_day
-		Song.where(:fame => self.fame.max)
+	def update_genres
+		self.genres.each do |g|
+			g.update_count_field
+		end
 	end
 end

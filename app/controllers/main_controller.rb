@@ -9,7 +9,8 @@ class MainController < ApplicationController
     @page_options = 'main/mainOptions'
 
     if params[:genre]
-      @songs = Genre.find(params[:genre][:sort_by]).songs
+      @songs = Genre.find(params[:genre][:sort_by]).songs.order("fame DESC")
+      @bands = Genre.find(params[:genre][:sort_by]).bands.order("fame DESC")
     else
       @songs = Song.all.order("fame DESC")
       @bands = Band.all.order("fame DESC")

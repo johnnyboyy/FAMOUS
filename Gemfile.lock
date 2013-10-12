@@ -173,8 +173,8 @@ DEPENDENCIES
   devise
   jbuilder (~> 1.2)
   jquery-rails
-  kaminari
   jquery-ui-rails
+  kaminari
   modernizr-rails
   omniauth
   omniauth-twitter

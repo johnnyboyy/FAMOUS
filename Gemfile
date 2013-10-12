@@ -34,14 +34,8 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-gem 'rspec-rails', group: [:development, :test]
-
-gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
-
 # Use ActiveModel has_secure_password
-gem 'devise'
 
-gem "modernizr-rails"
 #gem "gumby-framework"
 
 # Use unicorn as the app server
@@ -51,9 +45,17 @@ gem "modernizr-rails"
 # gem 'capistrano', group: :development
 
 # Use debugger
+gem 'rspec-rails', group: [:development, :test]
 gem 'debugger', group: [:development, :test]
+
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+
+gem 'kaminari'
+
+gem 'devise'
 
 gem 'omniauth'
 gem 'omniauth-twitter'
 
+gem "modernizr-rails"
 

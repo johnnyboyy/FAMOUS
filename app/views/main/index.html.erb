@@ -25,7 +25,8 @@
 			  	<a href="#" class="tab">Bands</a>
 			  </li>
 					<div class="tab-content active">
-			      	<%= render 'songs/displaySongs' %>
+		      	<%= render 'songs/displaySongs' %>
+						<%= paginate @songs %>
 			    </div>
 			  	<div class="tab-content">
 			        <%= render 'bands/bandtab' %>

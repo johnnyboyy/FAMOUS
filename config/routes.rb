@@ -24,7 +24,7 @@ FAMOUS::Application.routes.draw do
   resources :users, only: :show
   resources :venues
 
-  get 'search' => 'applications#search', :as => 'search'
+  get 'search' => 'main#search', :as => 'search'
 
 
   

@@ -29,7 +29,5 @@ class ApplicationController < ActionController::Base
     # gets overriden by bands and songs controllers
   end
 
-  def page_options
-    # overriden by other controllers
-  end
+
 end

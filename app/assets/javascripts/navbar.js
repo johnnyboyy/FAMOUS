@@ -1,15 +1,8 @@
 $(document).ready(function(){
-  $('input.search').autocomplete(
-  {
+  $('input.search').autocomplete({
     
-    source: ['timtrueman', 'JakeHarding', 'vskarich']
-  }
-
-  // {
-  //   name: 'songs',
-  //   local: ['poop']
-  // }
-);  
+    source: '/search.json'
+  });
 });
 
 

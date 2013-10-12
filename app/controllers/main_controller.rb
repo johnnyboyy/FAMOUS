@@ -17,4 +17,10 @@ class MainController < ApplicationController
     end
   end
 
+  def search 
+    respond_to do |format|
+      format.json { render json: @bands.as_json(only: [:id, :name]) }
+    end
+  end
+
 end

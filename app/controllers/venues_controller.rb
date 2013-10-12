@@ -29,9 +29,10 @@ class VenuesController < ApplicationController
   end
 
   def update
+    @venue = Venue.find(params[:id])
     respond_to do |format|
       if @venue.update(venue_params)
-      format.html { redirect_to @venue, notice: 'The venue was successfully updated.' }
+      format.html { redirect_to current_user, notice: 'The venue was successfully updated.' }
       #format.json { head :no_content }
       else
       format.html { render action: "edit" }

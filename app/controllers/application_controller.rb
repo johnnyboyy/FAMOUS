@@ -4,6 +4,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  def search
+    song = Song.where('title ILIKE ?', "%#{params[:term]}")
+  end 
+
   protected
 
   def configure_permitted_parameters
@@ -25,7 +29,5 @@ class ApplicationController < ActionController::Base
     # gets overriden by bands and songs controllers
   end
 
-  def page_options
-    # overriden by other controllers
-  end
+
 end

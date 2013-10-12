@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery-migrate-1.1.1.min.js
 //= require jquery_ujs
+//= require jquery.ui.all
 //= require modernizr
 //= require gumby.min
 //= require bands
+//= require navbar

@@ -24,6 +24,8 @@ FAMOUS::Application.routes.draw do
   resources :users, only: :show
   resources :venues
 
+  get 'search' => 'main#search', :as => 'search'
+
 
   
   # The priority is based upon order of creation:

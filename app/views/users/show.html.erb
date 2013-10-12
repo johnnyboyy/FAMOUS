@@ -33,7 +33,8 @@
 			    <div class="tab-content">
 			  		<% @venues.each do |v| %>
 			  			<%= v.name %><br>		
-			  			<%= image_tag(v.image.url) %>	  			
+			  			<%= image_tag(v.image.url) %><br>
+			  			<%= link_to "Edit Venue", edit_venue_path %>	  			
 			  		<% end %>
 			    </div>
 			    

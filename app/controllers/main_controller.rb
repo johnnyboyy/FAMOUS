@@ -20,5 +20,12 @@ class MainController < ApplicationController
       @songs = Song.all.order("fame DESC").page params[:page]
       @bands = Band.all.order("fame DESC")
     end
+    
+  end
+
+  def search 
+    respond_to do |format|
+      format.json { render json: @bands.as_json(only: [:id, :name]) }
+    end
   end
 end

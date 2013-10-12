@@ -1,5 +1,5 @@
 
-<% @five_or_under.times do |i| %>
+<% @top_seven_count.times do |i| %>
   <li class="nav-btn">
     <div class="snav medium primary btn">
      <%= link_to "#{@genres[i].name.titleize}", root_path(genre: {sort_by: "#{@genres[i].id}"}) %>

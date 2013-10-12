@@ -59,11 +59,7 @@ class BandsController < ApplicationController
       end
     end
   end
-
-  def join
-  	redirect_to @band
-  end
-
+  
   def leave
   	@band.users.delete(current_user)
   	redirect_to @band

@@ -4,8 +4,13 @@ class MainController < ApplicationController
     @topsong = Song.joins(:likes).where("likes.created_at > ?", 1.day.ago).order("songs.fame DESC").first  || Song.order("fame DESC").first
     @topsongoftheweek = Song.joins(:likes).where("likes.created_at > ?", 7.day.ago).order("songs.fame DESC").first  || Song.order("fame DESC").first
 
-    @five_or_under = Genre.count
-    @genres = Genre.all
+    if Genre.count < 7
+      @top_seven_count = Genre.count
+    else
+      @top_seven_count = 7
+    end
+
+    @genres = Genre.all.order('count DESC').limit(7)
     @page_options = 'main/mainOptions'
 
     if params[:genre]

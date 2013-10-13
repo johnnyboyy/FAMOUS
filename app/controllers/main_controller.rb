@@ -24,8 +24,7 @@ class MainController < ApplicationController
   end
 
   def search 
-    respond_to do |format|
-      format.json { render json: @bands.as_json(only: [:id, :name]) }
-    end
+    bands = Band.where('name ILIKE ?', "%#{params[:term]}%")
+    render json: bands.map{ |band| {value: band.name} } 
   end
 end

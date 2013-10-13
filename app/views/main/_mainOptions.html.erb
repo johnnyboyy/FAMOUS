@@ -1,15 +1,15 @@
 
 
+<% @top_seven_count.times do |i| %>
+  <li class="nav-btn">
+    <div class="snav medium primary btn">
+     <%= link_to "#{@genres.reverse[i].name.titleize}", root_path(genre: {sort_by: "#{@genres.reverse[i].id}"}) %>
+    </div>
+  </li>
+<% end %>
+
 <li class="nav-btn">
   <div class="snav medium secondary btn">
   <%= link_to 'All', :root %>
   </div>
 </li>
-
-<% @top_seven_count.times do |i| %>
-  <li class="nav-btn">
-    <div class="snav medium primary btn">
-     <%= link_to "#{@genres[i].name.titleize}", root_path(genre: {sort_by: "#{@genres[i].id}"}) %>
-    </div>
-  </li>
-<% end %>

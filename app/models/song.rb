@@ -1,5 +1,6 @@
 class Song < ActiveRecord::Base
 	# to relate songs band and song
+	belongs_to :album
 	belongs_to :user
 	belongs_to :band
 

@@ -4,4 +4,6 @@ class Album < ActiveRecord::Base
 
   validates :title, presence: true
 
+  has_attached_file :profile_pic
+
 end

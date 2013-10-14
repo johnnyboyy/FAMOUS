@@ -27,8 +27,8 @@
               <%= f.text_field :title, class: "input" %>
             </li>
             <li class="field">
-              <%=f.label :genres_list %>
-              <%=f.text_field :genres_list, class: "input" %>
+              <%=f.label :genres_list, "Genres (seperated by a comma)" %>
+              <%=f.text_field :genres_list, class: "input", value: @band.genres.map(&:name).uniq.join(", ") %>
             </li>
             <li class="medium secondary btn">
               <%= f.submit 'Create Song' %>

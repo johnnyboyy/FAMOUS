@@ -15,6 +15,7 @@
 //= require jquery_ujs
 //= require jquery.ui.all
 //= require modernizr
-//= require gumby.min
-//= require bands
+//= require z_gumby.min
 //= require navbar
+//= require z_bands
+

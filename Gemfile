@@ -61,3 +61,5 @@ gem 'omniauth-twitter'
 
 gem "modernizr-rails"
 
+gem 'aws-sdk'
+

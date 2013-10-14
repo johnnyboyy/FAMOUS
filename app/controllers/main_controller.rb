@@ -15,10 +15,10 @@ class MainController < ApplicationController
 
     if params[:genre]
       @songs = Genre.find(params[:genre][:sort_by]).songs.order("fame DESC").page params[:page]
-      @bands = Genre.find(params[:genre][:sort_by]).bands.order("fame DESC")
+      @bands = Genre.find(params[:genre][:sort_by]).bands.order("fame DESC").uniq.page params[:page]
     else
       @songs = Song.all.order("fame DESC").page params[:page]
-      @bands = Band.all.order("fame DESC")
+      @bands = Band.all.order("fame DESC").page params[:page]
     end
     
   end

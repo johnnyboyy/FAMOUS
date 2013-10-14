@@ -15,7 +15,7 @@ class Song < ActiveRecord::Base
 
 
 	# to upload a file using paperclip gem
-	has_attached_file :mp3_file	, default_url: "/blank.mp3"
+	has_attached_file :mp3_file	
 
 	# validations:
 	validates :title, :artist, presence: true

@@ -40,11 +40,11 @@
 			<div class="tab-content">
 				<div class="row">
 				  <% @show_requests.each do |req| %>
-				    <div class="three columns push_two">              
+				    <div class="three columns">              
 				      <h3><%= sender_name(req) %></h3>
 				      <p><%= link_to 'Accept', band_request_path(band_id: @band, request_id: req.id), method: :patch%></p>
 				    </div>
-				    <div class="five columns">
+				    <div class="push_two five columns">
 				    	<p><%= req.message %></p>
 				    </div>
 				  <% end %>

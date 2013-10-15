@@ -63,3 +63,5 @@ gem "modernizr-rails"
 
 gem 'aws-sdk'
 
+gem 'countries'
+

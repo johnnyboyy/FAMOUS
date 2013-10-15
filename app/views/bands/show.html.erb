@@ -35,7 +35,7 @@
 			</div>
 		<% if user_signed_in? && @band.users.include?(current_user) %>
 			<div class="tab-content">
-				<%= render 'requests/bandMemberRequestsTab', band_requests: @band_requests %>
+				<%= render 'bands/bandMemberRequestsTab', band_requests: @band_requests %>
 			</div>
 			<div class="tab-content">
 

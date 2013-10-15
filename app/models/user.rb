@@ -62,6 +62,8 @@ class User < ActiveRecord::Base
 
 
 
+
+
   def liked_bands
   	bands = []
   	self.likes.map(&:song).compact.inject(bands) { |bands, s| bands << s.band }

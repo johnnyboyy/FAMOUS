@@ -26,6 +26,9 @@
 					  	<a href= "#" class="tab">My Venues</a>
 					  </li>
 					<% end %>
+						<li class="tab">
+					  	<a href= "#" class="tab">My Requests</a>
+					  </li>
 					<div class="tab-content active">
 			        <%= render 'songs/displaySongs' %>
 			    </div>
@@ -41,6 +44,13 @@
 				  		<% end %>
 				    </div>
 				  <% end %>
+				  	<div class="tab-content">
+				  	<h4>Stuff</h4>
+				  		<% @responses.each do |r| %>
+				  			<%= r.band_name %>
+				  			<%= r.status %>  			
+				  		<% end %>
+				    </div>
 			    
 				</ul>
 

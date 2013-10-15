@@ -6,6 +6,14 @@ class UsersController < ApplicationController
 		@bands = @user.liked_bands
     @venues = @user.venues
     @page_options = 'users/pageOptions'
+
+    @responses = []
+    Request.where(sender: current_user.id).where(status: 'accepted').each do |req|
+      unless @responses.map(&:band_id).include?(req.band_id)
+        @responses << req
+      end
+    end
+
 	end
 
   def has_venue

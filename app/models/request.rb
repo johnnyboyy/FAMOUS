@@ -23,5 +23,14 @@ class Request < ActiveRecord::Base
 
   def location
   end
+
+
+  def requester_name
+    User.find(self.sender).name
+  end
+
+  def band_name
+    Band.find(self.band_id).name
+  end
   
 end

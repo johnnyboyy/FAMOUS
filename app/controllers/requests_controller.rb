@@ -36,11 +36,18 @@ class RequestsController < ApplicationController
 
     if @request.request_type == "member" && @band.users.include?(current_user)
       @band.users << User.find(@request.sender)
-      Request.where(sender: @request.sender).where(band_id: @request.band_id).map(&:destroy)
+      Request.where(status: "pending").where(sender: @request.sender).where(band_id: @request.band_id).where(request_type: "member").map(&:destroy)
+    end
+
+    if @request.request_type == "booking" && @band.users.include?(current_user)
+      Request.where(status: "pending").where(sender: @request.sender).where(band_id: @request.band_id).where(request_type: "booking").each do |req|
+        req.status = "accepted"
+        req.save
+      end
     end
 
     if @band.save
-      redirect_to band_path(@band), notice: "#{requester_name(@request)} has joined the band!" 
+      redirect_to band_path(@band), notice: "Request from #{requester_name(@request)} has been accepted!" 
     else
       flash.now[:alert] = "We couldn't add #{requester_name(@request)}."
       render band_path(@band)
@@ -90,13 +97,10 @@ class RequestsController < ApplicationController
       return "#{month}/#{day}/#{Time.now.year} at #{hour}"
     end
 
-    def requester_name(request)
-      User.find(request.sender).name
-    end
 
     def booking_message(request, other_params)
       date = formatted_time(other_params["showtime(2i)"], other_params["showtime(3i)"], other_params["showtime(4i)"],)
-      return "#{requester_name(request)} is willing to pay $#{other_params[:pay]}
+      return "#{request.requester_name} is willing to pay $#{other_params[:pay]}
        for #{other_params[:per]} for you to play a show
        at #{other_params[:location]}, on #{date}."
     end

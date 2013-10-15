@@ -12,7 +12,7 @@
   </div>
   <br />
   <%= f.label :showtime, "on " %>
-  <%= f.datetime_select :showtime, ampm: true, prompt: true, discard_minute: true, discard_year: true %>
+  <%= f.datetime_select "showtime", ampm: true, prompt: true, discard_minute: true%>
   <br />
   <%= f.label :location, "at " %>
   <%= f.text_field :location, class: "input", placeholder: "address" %>

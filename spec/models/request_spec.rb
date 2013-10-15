@@ -9,7 +9,17 @@ describe Request do
                 reciever: 2,
                 message: "test" )}
 
-  let(:book_req) { :band_req[request_type] = "booking" }
+  let(:book_req) { Request.new(request_type: "booking",
+                band_id: 1,
+                status: "pending",
+                sender: 1,
+                reciever: 2,
+                message: "test",
+                pay: 100,
+                per: "whole show",
+                showtime: DateTime.now,
+                location: "123a real address" )}
+
 
   describe "Basic presence_of tests;" do
     it "should accept a valid request" do
@@ -74,7 +84,8 @@ describe Request do
 
       expect(band_req.save).to eq(true)
     end
-
-    
+  end
+  describe "booking request basics" do 
+    xit "should not accept an empty showtime field"
   end
 end

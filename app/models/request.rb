@@ -27,7 +27,10 @@ class Request < ActiveRecord::Base
   end
 
 
-  def location
+  def booking_message
+    self.message = "#{self.requester_name} is willing to pay $#{self.pay}
+       for #{self.per} for you to play a show
+       at #{self.location}, on #{self.showtime}."
   end
 
 

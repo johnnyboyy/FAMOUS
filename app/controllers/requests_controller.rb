@@ -15,7 +15,11 @@ class RequestsController < ApplicationController
 
 
   def create
-    @request = Request.new(request_params)
+    if @request.request_type == "booking"
+      @request = Request.new(request_params << booking_params)
+    else
+      @request = Request.new(request_params)
+    end
     @band = Band.find(params[:band_id])
     send_message_to_band_members
 

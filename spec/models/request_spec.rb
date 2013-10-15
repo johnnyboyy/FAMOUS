@@ -2,74 +2,79 @@ require 'spec_helper'
 
 describe Request do
 
-  let(:req) { Request.new(request_type: "member_request",
+  let(:band_req) { Request.new(request_type: "member",
                 band_id: 1,
                 status: "pending",
                 sender: 1,
                 reciever: 2,
                 message: "test" )}
+
+  let(:book_req) { :band_req[request_type] = "booking" }
+
   describe "Basic presence_of tests;" do
     it "should accept a valid request" do
-      expect(req.save).to eq(true)
+      expect(band_req.save).to eq(true)
     end
     it "should not allow a blank sender field" do
-      req.sender = nil
+      band_req.sender = nil
 
-      expect(req.save).to eq(false)
+      expect(band_req.save).to eq(false)
     end
     it "should not allow a blank band_id field" do
-      req.band_id = nil
+      band_req.band_id = nil
 
-      expect(req.save).to eq(false)
+      expect(band_req.save).to eq(false)
     end
     it "should not allow a blank status field" do
-      req.status = nil
+      band_req.status = nil
 
-      expect(req.save).to eq(false)
+      expect(band_req.save).to eq(false)
     end
     it "should not allow a blank request_type field" do
-      req.request_type = nil
+      band_req.request_type = nil
 
-      expect(req.save).to eq(false)
+      expect(band_req.save).to eq(false)
     end
     it "should not allow a blank reciever field" do
-      req.reciever = nil
+      band_req.reciever = nil
 
-      expect(req.save).to eq(false)
+      expect(band_req.save).to eq(false)
     end
   end
-  describe "field specific tests;" do
+  describe "Field specific tests;" do
     it "reciever field should only accept a number" do
-        req.reciever = "test"
-      expect(req.save).to eq(false)
+        band_req.reciever = "test"
+      expect(band_req.save).to eq(false)
     end
     it "sender field should only accept a number" do
-        req.sender = "test"
-      expect(req.save).to eq(false)
+        band_req.sender = "test"
+      expect(band_req.save).to eq(false)
     end
     it "band_id field should only accept a number" do
-        req.band_id = "test"
-      expect(req.save).to eq(false)
+        band_req.band_id = "test"
+      expect(band_req.save).to eq(false)
     end
     it "status field should not accept 'bad_status'" do
-      req.status = "bad_status"
+      band_req.status = "bad_status"
 
-      expect(req.save).to eq(false)
+      expect(band_req.save).to eq(false)
     end
     it "status field should accept 'pending'" do
-      req.status = "pending"
+      band_req.status = "pending"
 
-      expect(req.save).to eq(true)
+      expect(band_req.save).to eq(true)
     end
-    it "status field should not accept 'bad_request'" do
-      req.request_type = "bad_request"
+    it "request_type field should not accept 'bad_request'" do
+      band_req.request_type = "bad_request"
 
-      expect(req.save).to eq(false)
+      expect(band_req.save).to eq(false)
     end
-    it "status field should accept 'band_request'" do
-      req.request_type = "member_request"
+    it "request_type field should accept 'member'" do
+      band_req.request_type = "member"
 
-      expect(req.save).to eq(true)
+      expect(band_req.save).to eq(true)
     end
+
+    
   end
 end

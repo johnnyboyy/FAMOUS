@@ -13,6 +13,7 @@ class RequestsController < ApplicationController
   end 
 
 
+
   def create
     @request = Request.new(request_params)
     @band = Band.find(params[:band_id])
@@ -25,6 +26,8 @@ class RequestsController < ApplicationController
       render 'new'
     end
   end
+
+
 
   def update
     @request = Request.find(params[:request_id])
@@ -46,9 +49,17 @@ class RequestsController < ApplicationController
   end
 
 
+
+
   def destroy
     Request.find(params[:request_id]).status = 'rejected'
   end
+
+
+
+
+
+
 
 
   private
@@ -58,7 +69,7 @@ class RequestsController < ApplicationController
     end
 
     def booking_params
-      params.require(:request).permit(:pay, :per, :showtime, :location)
+      params.require(:request).permit(:pay, :per, "showtime(2i)", "showtime(3i)", "showtime(4i)", :location)
     end
 
     def send_message_to_band_members
@@ -68,17 +79,25 @@ class RequestsController < ApplicationController
         req.sender = current_user.id
         req.reciever = mem.id
         req.band_id = params[:band_id]
+        if req.request_type == "booking"
+          req.message = booking_message(req, booking_params)
+        end
         req.save
       end
+    end
+
+    def formatted_time(month, day, hour)
+      return "#{month}/#{day}/#{Time.now.year} at #{hour}"
     end
 
     def requester_name(request)
       User.find(request.sender).name
     end
 
-    def booking_message
-      "#{requester_name(@request)} is willing to pay $#{[params:pay]}
-       for #{params[:per]} for you to play a show
-       at #{params[:location]}, on #{params[:showtime]}."
+    def booking_message(request, other_params)
+      date = formatted_time(other_params["showtime(2i)"], other_params["showtime(3i)"], other_params["showtime(4i)"],)
+      return "#{requester_name(request)} is willing to pay $#{other_params[:pay]}
+       for #{other_params[:per]} for you to play a show
+       at #{other_params[:location]}, on #{date}."
     end
 end

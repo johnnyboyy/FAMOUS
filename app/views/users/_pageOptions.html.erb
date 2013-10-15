@@ -5,7 +5,7 @@
 </li>
 <li class="nav-btn">
   <div class="snav medium secondary btn">
-    <%= link_to "Book an Artist", new_venue_path %>
+  <%= link_to "Book an Artist", has_venue_true_path(current_user), method: :post%>
   </div>
 </li>
 <li class="nav-btn">

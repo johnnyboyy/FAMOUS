@@ -11,6 +11,11 @@
 			</div>
 			
 			<div class="push_two four columns">
+				<% if user_signed_in? && current_user.has_venue %>
+					<span>
+						<%= link_to "Book Band", new_band_request_path(band_id: s.band.id, request_type: "booking") %>
+					</span>
+				<% end %>
 				<span class="likes" id="<%= s.id %>">
 					<%= render 'likes/likes', s: s %>
 				</span>

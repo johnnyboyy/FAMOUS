@@ -61,7 +61,10 @@ class User < ActiveRecord::Base
   # end of twitter login
 
 
-
+  def set_venue_status
+    self.has_venue = true
+    self.save
+  end
 
 
   def liked_bands

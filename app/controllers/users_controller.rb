@@ -8,5 +8,10 @@ class UsersController < ApplicationController
     @page_options = 'users/pageOptions'
 	end
 
+  def has_venue
+    current_user.set_venue_status
+    redirect_to :root
+  end
+
 
 end

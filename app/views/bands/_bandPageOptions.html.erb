@@ -32,7 +32,7 @@
 
 	<li class="nav-btn">
 	  <div class="snav medium secondary btn">
-	    <%= link_to 'Join ' + @band.name, new_band_request_path(user_id: current_user.id, band_id: @band.id) %>
+	    <%= link_to 'Join ' + @band.name, new_band_request_path(user_id: current_user.id, band_id: @band.id, request_type: "member") %>
 	  </div>
 	</li>
 

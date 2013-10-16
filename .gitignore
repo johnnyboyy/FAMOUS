@@ -21,3 +21,4 @@
 db/schema.rb
 config/aws.yml
 config/database.yml
+backup/*

@@ -6,6 +6,7 @@ class RequestsController < ApplicationController
     @band = Band.find(params[:band_id])
     @request = Request.new
     @request.request_type = params[:request_type]
+    @request.band_id = params[:band_id]
   end
 
   def show
@@ -15,10 +16,11 @@ class RequestsController < ApplicationController
 
 
   def create
-    @band = Band.find(params[:band_id])
-    send_message_to_band_members
+    @band = Band.find(request_params[:band_id])
+    @request = Request.new(request_params)
+    # @band.users.first.requests.map(&:sender).include?(current_user.id)
 
-    if @band.users.first.requests.map(&:sender).include?(current_user.id)
+    if send_message_to_band_members(@band)
       redirect_to current_user, notice: "Request has been sent."
     else
       flash.now[:alert] = "We couldn't send the request. Please try again."
@@ -74,8 +76,8 @@ class RequestsController < ApplicationController
       params.require(:request).permit(:message, :request_type, :band_id, :pay, :per, :showtime, :location)
     end
 
-    def send_message_to_band_members
-      Band.find(params[:band_id]).users.each do |mem|
+    def send_message_to_band_members(band)
+      band.users.each do |mem|
         req = Request.new(request_params)
         req.status = 'pending'
         req.sender = current_user.id
@@ -83,7 +85,10 @@ class RequestsController < ApplicationController
         if req.request_type == "booking"
           req.message = req.booking_message
         end
-        req.save
+        if req.save == false
+          return false
+        end
       end
+      return true
     end
 end

@@ -17,8 +17,8 @@ describe Request do
                 message: "test",
                 pay: 100,
                 per: "whole show",
-                showtime: DateTime.now,
-                location: "123a real address" )}
+                showtime: DateTime.now + 10.days,
+                location: "123a Real Address" )}
 
 
   describe "Basic presence_of tests;" do
@@ -51,7 +51,7 @@ describe Request do
       expect(band_req.save).to eq(false)
     end
   end
-  describe "Field specific tests;" do
+  describe "Field specific tests:" do
     it "reciever field should only accept a number" do
         band_req.reciever = "test"
       expect(band_req.save).to eq(false)
@@ -85,7 +85,39 @@ describe Request do
       expect(band_req.save).to eq(true)
     end
   end
-  describe "booking request basics" do 
-    xit "should not accept an empty showtime field"
+  describe "booking requests;" do
+    describe "the baiscs:" do 
+      it "should not accept an empty pay field" do
+        book_req.pay = nil
+
+        expect(book_req.save).to eq(false)
+      end
+      it "should not accept an empty per field" do
+        book_req.per = nil
+
+        expect(book_req.save).to eq(false)
+      end
+      it "should not accept an empty showtime field" do
+        book_req.showtime = nil
+
+        expect(book_req.save).to eq(false)
+      end
+      it "should not accept an empty location field" do
+        book_req.location = nil
+
+        expect(book_req.save).to eq(false)
+      end
+    end
+    describe "slightly more specific:" do 
+      it "should accept a number in the pay field" do
+        
+        expect(book_req.save).to eq(true)
+      end
+      it "should accept a number in the pay field" do
+        book_req.pay = "string"
+
+        expect(book_req.save).to eq(false)
+      end
+    end
   end
 end

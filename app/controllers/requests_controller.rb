@@ -48,7 +48,7 @@ class RequestsController < ApplicationController
     end
 
     if @band.save
-      redirect_to band_path(@band), notice: "Request from #{requester_name(@request)} has been accepted!" 
+      redirect_to band_path(@band), notice: "Request from #{@request.requester_name} has been accepted!" 
     else
       flash.now[:alert] = "We couldn't add #{requester_name(@request)}."
       render band_path(@band)

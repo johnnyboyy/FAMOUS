@@ -19,4 +19,5 @@
 //= require navbar
 //= require z_bands
 //= require requests
+//= require gumby.parallax
 

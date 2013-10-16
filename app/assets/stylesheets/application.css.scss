@@ -13,6 +13,17 @@
  *= require jquery.ui.all
  */
 
+.parallax {
+  background-attachment: fixed !important;
+}
+
+.oldie, .ie9 {
+  .parallax {
+    background-attachment: static !important;
+  }
+}
+
+
 // .tab_field{
 //   min-height: 100px;
 // }

@@ -1,6 +1,7 @@
 FAMOUS::Application.routes.draw do
 
 
+  
   root to: 'main#index'
 
   resources :songs, only: [:edit, :destroy] do
@@ -23,7 +24,7 @@ FAMOUS::Application.routes.draw do
   
   resources :users, only: :show
   resources :venues
-
+  resources :staticpages
 
   get 'search' => 'main#search', :as => 'search'
   post 'has_venue', to: 'users#has_venue', as: 'has_venue_true'

@@ -1,0 +1,20 @@
+
+<li class="field">
+  <%= f.label :pay, "I am willing to pay:" %>
+    <span class="prepend field">
+      <span class="adjoined">$</span>
+      <%= f.number_field :pay, class: "input" %>
+    </span>
+  <br />
+  <%= f.label :per, "for "%>
+  <div class="picker">
+   <%= f.select :per, options_for_select([["each person you bring", "each person you bring"],["the whole show", "the whole show"]]) %>
+  </div>
+  <br />
+  <%= f.label :showtime, "on " %>
+  <%= f.datetime_select "showtime", ampm: true, prompt: true, discard_minute: true%>
+  <br />
+  <%= f.label :location, "at " %>
+  <%= f.text_field :location, class: "input", placeholder: "address" %>
+  </li>
+

@@ -2627,7 +2627,6 @@ p.genres { font-size: 11pt; }
 
 div a.x-button { float: right; }
 
-span.likes { float: right; margin: 5px; }
-span.likes div { float: right; }
+span.tab-btns { float: right; margin: 5px; }
 
 li.cancel_btn_center { margin-left: 40px; }

@@ -3,6 +3,7 @@
 <head>
   <title>FAMOUS</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <%= javascript_include_tag "modernizr" %>
   <%= stylesheet_link_tag "application", :media => "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
@@ -19,15 +20,17 @@
     <%= render 'layouts/subNavbar' %>
   <% end %>
 
-  <div class="navbar-margin"></div>
+  <div class="navbar-margin">
+    <% if flash[:notice] %>
+      <p class="secondary alert"><%= flash[:notice] %></p>
+    <% end %>
 
-	<% if flash[:notice] %>
-		<p id="notice"><%= flash[:notice] %></p>
-	<% end %>
+    <% if flash[:alert] %>
+      <p class="danger alert"><%= flash[:alert] %></p>
+    <% end %>
+  </div>
 
-	<% if flash[:alert] %>
-		<p id="alert"><%= flash[:alert] %></p>
-	<% end %>
+
 
 	<%= yield %>
 

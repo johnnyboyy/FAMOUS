@@ -1,6 +1,6 @@
 <li class="nav-btn">
-  <div class="snav medium primary btn">
-    <%= link_to "Edit account", edit_user_registration_path %>
+  <div class="snav medium secondary btn">
+    <%= link_to 'Create a band', new_band_path %>
   </div>
 </li>
 <% unless current_user.has_venue %>
@@ -11,8 +11,7 @@
 </li>
 <% end %>
 <li class="nav-btn">
-  <div class="snav medium secondary btn">
-    <%= link_to 'Create a band', new_band_path %>
+  <div class="snav medium primary btn">
+    <%= link_to "Edit account", edit_user_registration_path %>
   </div>
 </li>
-

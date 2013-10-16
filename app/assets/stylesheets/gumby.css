@@ -2615,9 +2615,9 @@ table.rounded thead th, table.rounded thead td, table.rounded caption + tbody tr
 
 #inner-nav { padding: 5px 0; }
 #inner-nav .snav { float: none; margin: 0 10px; border: none; min-width: 150px; font-size: 10pt; }
-#inner-nav .nav-btn { float: right; }
+#inner-nav .nav-btn { display: inline; }
 
-.navbar-margin { margin-bottom: 20px; }
+.navbar-margin { min-height: 20px; }
 
 audio.song_player { float: right; clear: right; }
 

@@ -1,20 +1,8 @@
 
 <% if @band.users.include?(current_user) %>
-
 	<li class="nav-btn">
-	  <div class="snav medium danger btn">
-	    <%= link_to 'Delete Band', @band, method: :delete, confirm: "are you sure?" %>
-	  </div>
-	</li>
-	<li class="nav-btn">
-	  <div class="snav medium danger btn">
-	    <%= link_to "Leave '#{@band.name}'", leave_band_path, method: :post %>
-	  </div>
-	</li>
-
-	<li class="nav-btn">
-	  <div class="snav medium primary btn">
-	    <a href="#" class="member_options_toggle">Edit Songs</a>
+	  <div class="snav medium secondary btn">
+	    <%= link_to "New Song", new_band_song_path(params[:id]) %>
 	  </div>
 	</li>
 	<li class="nav-btn">
@@ -23,10 +11,23 @@
 	  </div>
 	</li>
 	<li class="nav-btn">
-	  <div class="snav medium secondary btn">
-	    <%= link_to "New Song", new_band_song_path(params[:id]) %>
+	  <div class="snav medium primary btn">
+	    <a href="#" class="member_options_toggle">Edit Songs</a>
 	  </div>
 	</li>
+	<li class="nav-btn">
+	  <div class="snav medium danger btn">
+	    <%= link_to "Leave '#{@band.name}'", leave_band_path, method: :post %>
+	  </div>
+	</li>
+	<li class="nav-btn">
+	  <div class="snav medium danger btn">
+	    <%= link_to 'Delete Band', @band, method: :delete, confirm: "are you sure?" %>
+	  </div>
+	</li>
+
+
+
 
 <% else %>
 

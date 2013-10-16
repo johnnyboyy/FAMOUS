@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require jquery.ui.all
 //= require jquery.ui.datepicker
-//= require modernizr
+//= require modernizr-2.6.2.min
 //= require z_gumby.min
 //= require navbar
 //= require z_bands

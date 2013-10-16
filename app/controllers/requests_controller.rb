@@ -1,6 +1,6 @@
 class RequestsController < ApplicationController
   before_action :authenticate_user!
-
+  
 
   def new
     @band = Band.find(params[:band_id])
@@ -73,12 +73,13 @@ class RequestsController < ApplicationController
   private
 
     def request_params
-      params.require(:request).permit(:message, :request_type, :band_id, :pay, :per, :showtime, :location)
+      params.require(:request).permit(:message, :request_type, :band_id, :pay, :per, :location)
     end
 
     def send_message_to_band_members(band)
       band.users.each do |mem|
         req = Request.new(request_params)
+        req.showtime = DateTime.strptime(params[:request][:showtime], format='%m/%e/%Y')
         req.status = 'pending'
         req.sender = current_user.id
         req.reciever = mem.id
@@ -91,4 +92,5 @@ class RequestsController < ApplicationController
       end
       return true
     end
+      
 end

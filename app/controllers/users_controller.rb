@@ -1,19 +1,13 @@
 class UsersController < ApplicationController
 	before_action :authenticate_user!
+
 	def show
-		@user = current_user
-		@songs = @user.songs
-		@bands = @user.liked_bands
-    @venues = @user.venues
+		@songs = current_user.songs
+		@bands = current_user.liked_bands
+    @venues = current_user.venues
+    @requests = current_user.sent_requests
+
     @page_options = 'users/pageOptions'
-
-    @responses = []
-    Request.where(sender: current_user.id).where(status: 'accepted').each do |req|
-      unless @responses.map(&:band_id).include?(req.band_id)
-        @responses << req
-      end
-    end
-
 	end
 
   def has_venue

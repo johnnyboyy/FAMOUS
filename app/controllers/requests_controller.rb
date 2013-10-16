@@ -15,7 +15,6 @@ class RequestsController < ApplicationController
 
 
   def create
-    debugger
     @band = Band.find(params[:band_id])
     send_message_to_band_members
 
@@ -81,7 +80,6 @@ class RequestsController < ApplicationController
         req.status = 'pending'
         req.sender = current_user.id
         req.reciever = mem.id
-        req.band_id = params[:band_id]
         if req.request_type == "booking"
           req.message = req.booking_message
         end

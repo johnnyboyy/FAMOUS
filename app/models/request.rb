@@ -6,6 +6,7 @@ class Request < ActiveRecord::Base
   validates_numericality_of :band_id, :reciever, :sender
   validate :status_must_be_correct, on: :create
   validate :request_type_must_be_correct, on: :create
+  validates :pay, :per, :showtime, :location, presence: true, if: :is_booking_request?
 
 
   def status_must_be_correct
@@ -13,10 +14,32 @@ class Request < ActiveRecord::Base
       errors.add(:status, "must be set to pending!")
     end
   end
+
   def request_type_must_be_correct
-    if request_type != "member_request"
-      errors.add(:status, "must be set to member_request!")
+    acceptable_types = ["member", "booking"]
+    unless acceptable_types.include?(self.request_type)
+      errors.add(:status, "invalid request type!")
     end
+  end
+
+  def is_booking_request?
+    self.request_type == 'booking'
+  end
+
+
+  def booking_message
+    self.message = "#{self.requester_name} is willing to pay $#{self.pay}
+       for #{self.per} for you to play a show
+       at #{self.location}, on #{self.showtime}."
+  end
+
+
+  def requester_name
+    User.find(self.sender).name
+  end
+
+  def band_name
+    Band.find(self.band_id).name
   end
   
 end

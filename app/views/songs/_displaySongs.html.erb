@@ -9,11 +9,19 @@
 				<h4 class="title"><%= s.title %></h4>					
 				<h5 class="artist">By: <%= link_to s.artist, s.band %></h5>
 			</div>
-			
 			<div class="push_two four columns">
-				<span class="likes" id="<%= s.id %>">
-					<%= render 'likes/likes', s: s %>
+				<span class="tab-btns">
+					<% if user_signed_in? && current_user.has_venue %>
+						<span class="secondary btn small">
+							<%= link_to "Book Band", new_band_request_path(band_id: s.band.id, request_type: "booking") %>
+						</span>
+					<% end %>
+					<span class="likes" id="<%= s.id %>">
+						<%= render 'likes/likes', s: s %>
+					</span>
 				</span>
+
+
 
 			<audio class="song_player" src="<%=s.mp3_file.url%>" controls>
 				<p>If you are reading this, it is because your browser does not support the audio element.</p>

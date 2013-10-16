@@ -5,8 +5,8 @@
 <div class="row">
 
 	<div class="three columns">
-		<%= image_tag(@user.profile_pic.url, class: "profile_pic") %>
-		<h3> <%= @user.first_name %> </h3>
+		<%= image_tag(current_user.profile_pic.url, class: "profile_pic") %>
+		<h3> <%= current_user.first_name %> </h3>
 	</div>
 
 	<div class="nine columns">
@@ -21,23 +21,38 @@
 					<li class="tab">
 				  	<a href="#" class="tab">Liked Bands</a>
 				  </li>
-				  <li class="tab">
-				  	<a href= "#" class="tab">My Venues</a>
-				  </li>
+				  <% unless current_user.venues.empty? %>
+					  <li class="tab">
+					  	<a href= "#" class="tab">My Venues</a>
+					  </li>
+					<% end %>
+						<li class="tab">
+					  	<a href= "#" class="tab">My Requests</a>
+					  </li>
 					<div class="tab-content active">
 			        <%= render 'songs/displaySongs' %>
 			    </div>
 			  	<div class="tab-content">
 			  		<%= render 'bands/bandtab' %>
 			    </div>
-			    <div class="tab-content">
-			  		<% @venues.each do |v| %>
-			  			<%= v.name %><br>		
-			  			<%= image_tag(v.image.url) %><br>
-			  			<%= link_to "Edit Venue", edit_venue_path %>	  			
-			  		<% end %>
-			    </div>
-			    
+			    <% unless current_user.venues.empty? %>
+				    <div class="tab-content">
+				  		<% @venues.each do |v| %>
+				  			<%= v.name %><br>		
+				  			<%= image_tag(v.image.url) %><br>
+				  			<%= link_to "Edit Venue", edit_venue_path %>	  			
+				  		<% end %>
+				    </div>
+				  <% end %>
+				  <% unless @requests.empty? %>
+						<div class="tab-content">
+				  		<% @requests.each do |r| %>
+				  			<h4><%= r.band_name %></h4>
+				  			<p>Status: <%= r.status %></p>
+				  			<p>Date: <%= r.showtime.strftime('%A %B %e %Y at %l:%M %p') %></p>
+				  		<% end %>
+				    </div>
+			    <% end %>
 				</ul>
 
 			</section>

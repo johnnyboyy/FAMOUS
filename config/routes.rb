@@ -20,11 +20,13 @@ FAMOUS::Application.routes.draw do
   resources :genres
   
   devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
-
+  
   resources :users, only: :show
   resources :venues
 
+
   get 'search' => 'main#search', :as => 'search'
+  post 'has_venue', to: 'users#has_venue', as: 'has_venue_true'
 
 
   

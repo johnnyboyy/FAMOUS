@@ -3,11 +3,13 @@
     <%= link_to "Edit account", edit_user_registration_path %>
   </div>
 </li>
+<% unless current_user.has_venue %>
 <li class="nav-btn">
   <div class="snav medium secondary btn">
-    <%= link_to "Add A Venue", new_venue_path %>
+  <%= link_to "Book an Artist", has_venue_true_path(current_user), method: :post%>
   </div>
 </li>
+<% end %>
 <li class="nav-btn">
   <div class="snav medium secondary btn">
     <%= link_to 'Create a band', new_band_path %>

@@ -11,7 +11,6 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require jquery-migrate-1.1.1.min.js
 //= require jquery_ujs
 //= require jquery.ui.all
 //= require modernizr

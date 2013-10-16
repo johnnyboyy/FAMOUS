@@ -18,7 +18,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
 
-
   has_many :requests, foreign_key: :sender
   has_many :requests, source: :user, foreign_key: :reciever
 
@@ -61,6 +60,11 @@ class User < ActiveRecord::Base
   # end of twitter login
 
 
+  def set_venue_status
+    self.has_venue = true
+    self.save
+  end
+
 
   def liked_bands
   	bands = []
@@ -74,6 +78,16 @@ class User < ActiveRecord::Base
 
   def recieved_requests
     Request.where(reciever: self)
+  end
+
+  def sent_requests
+    requests = []
+    Request.where(sender: self.id).each do |req|
+      unless requests.map(&:band_id).include?(req.band_id)
+        requests << req
+      end
+    end
+    requests
   end
 
 end

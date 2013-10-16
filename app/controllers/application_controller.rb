@@ -8,6 +8,14 @@ class ApplicationController < ActionController::Base
     song = Song.where('title ILIKE ?', "%#{params[:term]}")
   end 
 
+  def after_sign_in_path_for(resource)
+    if current_user.sign_in_count == 1
+      user_path(current_user)
+    else
+      root_path
+    end
+  end
+
   protected
 
   def configure_permitted_parameters
@@ -25,9 +33,8 @@ class ApplicationController < ActionController::Base
 
   end
 
-  def song_field(current_song)
-    # gets overriden by bands and songs controllers
-  end
+
+
 
 
 end

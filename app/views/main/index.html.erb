@@ -1,4 +1,6 @@
-
+<% content_for :giant_image do %>
+	<div class="large-height parallax" gumby-parallax="0.2"></div>
+<% end %>
 
 <div class="row">
 	<div class="three columns">
@@ -28,7 +30,7 @@
 			  <li>
 			  	<a href="#" class="tab">Bands</a>
 			  </li>
-					<div class="tab-content active">
+					<div class="tab-content active" id="songs" >
 		      	<%= render 'songs/displaySongs' %>
 						<%= paginate @songs %>
 			    </div>

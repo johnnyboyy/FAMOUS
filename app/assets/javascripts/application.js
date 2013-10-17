@@ -20,4 +20,5 @@
 //= require z_bands
 //= require requests
 //= require gumby.parallax
-
+//= require main.js.coffee
+//= require jquery.infinitescroll

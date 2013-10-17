@@ -17,8 +17,9 @@
 
    
 	<%= render 'layouts/navbar' %>
-
-  <%= yield :giant_image %>
+  <div class="large-height parallax" gumby-parallax="0.2">
+    <%= yield :giant_image %>
+  </div>
   
   <% if @page_options %>
     <%= render 'layouts/subNavbar' %>

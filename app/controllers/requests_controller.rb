@@ -41,7 +41,7 @@ class RequestsController < ApplicationController
     end
 
     if @request.request_type == "booking" && @band.users.include?(current_user)
-      Request.where(status: "pending").where(sender: @request.sender).where(band_id: @request.band_id).where(request_type: "booking").each do |req|
+      Request.where(status: "pending").where(sender: @request.sender).where(band_id: @request.band_id).where(request_type: "booking").where(showtime: @request.showtime).each do |req|
         req.status = "accepted"
         req.save
       end

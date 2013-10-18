@@ -1,7 +1,7 @@
 
 <div class="navbar" id="nav1" gumby-fixed="top">
 
-<span id="messages"><%= render "layouts/messages" %></span>
+   <%= render "layouts/messages" %>
 
   <div class="row">
     <a class="toggle" gumby-trigger="#nav1 > .row > div > ul" href="#"><i class="icon-menu"></i></a>
@@ -9,9 +9,13 @@
         <%= link_to image_tag("Logo.png"), :root %>
     </h1>
 
+    <% if @page_options %>
+      <%= render 'layouts/toggler' %>
+    <% end %>
+
 
   <% if user_signed_in? %>
-    <div class="nine columns">
+    <div class="six columns">
       <ul>
         <li >
           <%= link_to current_user.email, user_path(current_user) %>
@@ -20,10 +24,10 @@
         <li>
           <%= link_to "Log out", destroy_user_session_path(user_session), method: :delete %>
         </li>
+          </div>
         </li> 
       </ul>
     </div>
-
 
 
 
@@ -37,19 +41,11 @@
       </ul>
     </div>
   <% end %>
-  </div>
+
   <% if @page_options %>
     <%= render 'layouts/subNavbar' %>
-      <div class="row">
-        <div class="two columns centered">
-          <div class="medium warning btn" id="togoogler">
-            <span href="#" id="page-options-toggle1" class="switch" gumby-trigger="#drawer1"><i class="icon-down">Options</i></span>
-            <span href="#" id="page-options-toggle2" class="switch hide-this" gumby-trigger="|.drawer"><i class="icon-up">Options</i></span>
-          </div>
-        </div>
-      </div>
-    </div>
   <% end %>
   </div>
+
 </div>
 

@@ -2608,10 +2608,12 @@ table.rounded thead th, table.rounded thead td, table.rounded caption + tbody tr
 .large-height { height: 90%; background-repeat: no-repeat; background-size: 100% auto; background-position: center; }
 @media only screen and (max-width: 767px) { .large-height { height: 0%; } }
 
-div.counter-nav { height: 200px; }
+div.counter-nav { height: 70px; }
 @media only screen and (max-width: 767px) { div.counter-nav { height: 150px; } }
 
 @media only screen and (max-width: 767px) { .hide-on-all-phones { display: none !important; } }
+
+@media only screen and (min-width: 768px) { .hide-on-desktop { display: none !important; } }
 
 .parallax { background-attachment: fixed !important; }
 

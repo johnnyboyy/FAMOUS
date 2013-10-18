@@ -47,9 +47,9 @@
 				  <% unless @requests.empty? %>
 						<div class="tab-content">
 				  		<% @requests.each do |r| %>
-				  			<h4><%= r.band_name %></h4>
+				  			<h4><%=link_to r.band_name, band_path(r.band_id) %></h4>
 				  			<p>Status: <%= r.status %></p>
-				  			<p>Date: <%#= r.showtime.strftime('%A %B %e %Y at %l:%M %p') %></p>
+				  			<p>Date: <%= r.showtime.strftime('%A %B %e %Y at %l:%M %p') %></p>
 				  		<% end %>
 				    </div>
 			    <% end %>

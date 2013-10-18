@@ -83,7 +83,7 @@ class User < ActiveRecord::Base
   def sent_requests
     requests = []
     Request.where(sender: self.id).each do |req|
-      unless requests.map(&:band_id).include?(req.band_id)
+      unless requests.map(&:band_id).include?(req.band_id) && requests.map(&:showtime).include?(req.showtime)
         requests << req
       end
     end

@@ -30,7 +30,7 @@ class Request < ActiveRecord::Base
   def booking_message
     self.message = "#{self.requester_name} is willing to pay $#{self.pay}
        for #{self.per} for you to play a show
-       at #{self.location}, on #{self.showtime}."
+       at #{self.location}, on #{self.showtime.strftime(format='%m/%e/%Y')}."
   end
 
 

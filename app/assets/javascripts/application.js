@@ -23,3 +23,4 @@
 //= require main.js.coffee
 //= require jquery.infinitescroll
 //= require optionsToggle.js
+//= require messages.js

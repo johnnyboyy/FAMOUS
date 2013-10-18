@@ -21,8 +21,18 @@
   <div class="counter-nav">
 
     <%= render 'layouts/navbar' %>
-
+    <div class="row">
+      <div class="two columns centered">
+        <span class="btn medium primary disp-bloc" id="page-options-toggle1">
+          <a href="#" class="switch" gumby-trigger="#drawer1">Options<i class="icon-down"></i></a>
+        </span>
+        <span class="btn medium primary disp-bloc" id="page-options-toggle2">
+          <a href="#" class="switch" gumby-trigger="|.drawer">Options<i class="icon-up"></i></a>
+        </span>
+      </div>
+    </div>
   </div>
+
 
 	<%= yield %>
 

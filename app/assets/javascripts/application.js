@@ -22,3 +22,4 @@
 //= require gumby.parallax
 //= require main.js.coffee
 //= require jquery.infinitescroll
+//= require optionsToggle.js

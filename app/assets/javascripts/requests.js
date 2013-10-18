@@ -3,8 +3,6 @@ $(function(){
         changeMonth: true,
         changeYear: true
   });
-
-
 })
 
 

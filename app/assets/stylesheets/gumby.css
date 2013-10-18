@@ -1072,7 +1072,7 @@ img { -ms-interpolation-mode: bicubic; }
 @media only screen and (min-width: 768px) and (max-width: 1399px) { .navbar > ul > li > .btn a { padding: 0 10px 0 10px !important; }
   .navbar ul > li .dropdown ul li.active .dropdown { left: -320px; } }
 
-.navcontain { height: 80px; margin-bottom: 60px; }
+.navcontain { height: 80px; }
 @media only screen and (max-width: 768px) { .navcontain { height: auto; } }
 
 .pretty.navbar { background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #343434), color-stop(100%, #000000)); background-image: -webkit-linear-gradient(#343434, #000000); background-image: -moz-linear-gradient(#343434, #000000); background-image: -o-linear-gradient(#343434, #000000); background-image: linear-gradient(#343434, #000000); -webkit-box-shadow: inset 0 1px 1px #343434, 0 1px 2px rgba(0, 0, 0, 0.8) !important; -moz-box-shadow: inset 0 1px 1px #343434, 0 1px 2px rgba(0, 0, 0, 0.8) !important; box-shadow: inset 0 1px 1px #343434, 0 1px 2px rgba(0, 0, 0, 0.8) !important; /* Remove this line if you dont want a dropshadow on your navigation*/ }
@@ -2604,6 +2604,14 @@ table.rounded thead th, table.rounded thead td, table.rounded caption + tbody tr
 .ie9 .radio.checked i, .ie9 .checkbox.checked i { top: 0px; }
 
 .hide-this { display: none; }
+
+.large-height { height: 90%; background-repeat: no-repeat; background-size: 100% auto; background-position: center; }
+@media only screen and (max-width: 767px) { .large-height { height: 0%; } }
+
+div.counter-nav { height: 200px; }
+@media only screen and (max-width: 767px) { div.counter-nav { height: 150px; } }
+
+@media only screen and (max-width: 767px) { .hide-on-all-phones { display: none !important; } }
 
 .parallax { background-attachment: fixed !important; }
 

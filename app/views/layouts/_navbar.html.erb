@@ -1,13 +1,7 @@
 
 <div class="navbar" id="nav1" gumby-fixed="top">
 
-    <% if flash[:notice] %>
-      <p class="secondary alert navbar-margin"><%= flash[:notice] %></p>
-    <% end %>
-
-    <% if flash[:alert] %>
-      <p class="danger alert navbar-margin"><%= flash[:alert] %></p>
-    <% end %>
+   <%= render "layouts/messages" %>
 
   <div class="row">
     <a class="toggle" gumby-trigger="#nav1 > .row > div > ul" href="#"><i class="icon-menu"></i></a>
@@ -22,7 +16,7 @@
         <li >
           <%= link_to current_user.email, user_path(current_user) %>
         </li>
-        <li><span>|</span></li>
+        <li><span class="hide-on-mobile">|</span></li>
         <li>
           <%= link_to "Log out", destroy_user_session_path(user_session), method: :delete %>
         </li>
@@ -31,9 +25,7 @@
       </ul>
     </div>
 
-    <% if @page_options %>
-      <%= render 'layouts/subNavbar' %>
-    <% end %>
+
 
 
 
@@ -46,4 +38,7 @@
     </div>
   <% end %>
   </div>
+  <% if @page_options %>
+    <%= render 'layouts/subNavbar' %>
+  <% end %>
 </div>

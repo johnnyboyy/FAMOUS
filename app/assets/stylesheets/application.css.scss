@@ -12,38 +12,32 @@
  *= require_tree .
  *= require jquery.ui.all
  */
-div.counter-nav {
-  height: 200px;
-}
+
 
  .hide-this {
   display: none;
  }
 
  .large-height {
-  height: 800px;
   background-image: image-url('738_1rosenstein_mraz.jpg');
-  background-repeat: no-repeat;
-  background-size: 100% auto;
-  background-position: center;
  }
 
-.parallax {
-  background-attachment: fixed !important;
-}
+// .parallax {
+//   background-attachment: fixed !important;
+// }
 
-.oldie, .ie9 {
-  .parallax {
-    background-attachment: static !important;
-  }
-}
+// .oldie, .ie9 {
+//   .parallax {
+//     background-attachment: static !important;
+//   }
+// }
 
-.massive-image {
-  display: block;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
+// .massive-image {
+//   display: block;
+//   width: 100%;
+//   margin: 0;
+//   padding: 0;
+// }
 // .tab_field{
 //   min-height: 100px;
 // }

@@ -1072,7 +1072,7 @@ img { -ms-interpolation-mode: bicubic; }
 @media only screen and (min-width: 768px) and (max-width: 1399px) { .navbar > ul > li > .btn a { padding: 0 10px 0 10px !important; }
   .navbar ul > li .dropdown ul li.active .dropdown { left: -320px; } }
 
-.navcontain { height: 80px; }
+.navcontain { height: 80px; margin-bottom: 60px; }
 @media only screen and (max-width: 768px) { .navcontain { height: auto; } }
 
 .pretty.navbar { background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #343434), color-stop(100%, #000000)); background-image: -webkit-linear-gradient(#343434, #000000); background-image: -moz-linear-gradient(#343434, #000000); background-image: -o-linear-gradient(#343434, #000000); background-image: linear-gradient(#343434, #000000); -webkit-box-shadow: inset 0 1px 1px #343434, 0 1px 2px rgba(0, 0, 0, 0.8) !important; -moz-box-shadow: inset 0 1px 1px #343434, 0 1px 2px rgba(0, 0, 0, 0.8) !important; box-shadow: inset 0 1px 1px #343434, 0 1px 2px rgba(0, 0, 0, 0.8) !important; /* Remove this line if you dont want a dropshadow on your navigation*/ }
@@ -2602,6 +2602,14 @@ table.rounded thead th, table.rounded thead td, table.rounded caption + tbody tr
 .ie8 .ttip:hover:before, .ie8 .ttip:hover:after { display: block; }
 
 .ie9 .radio.checked i, .ie9 .checkbox.checked i { top: 0px; }
+
+.hide-this { display: none; }
+
+.parallax { background-attachment: fixed !important; }
+
+.oldie .parallax, .ie9 .parallax { background-attachment: static !important; }
+
+.massive-image { display: block; width: 100%; margin: 0; padding: 0; }
 
 .tab_field { min-height: 100px; }
 

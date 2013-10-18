@@ -12,6 +12,13 @@
  *= require_tree .
  *= require jquery.ui.all
  */
+div.counter-nav {
+  height: 200px;
+}
+
+ .hide-this {
+  display: none;
+ }
 
  .large-height {
   height: 800px;

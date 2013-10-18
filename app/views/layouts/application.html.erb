@@ -15,28 +15,13 @@
 </head>
 <body>
 
-   
-	<%= render 'layouts/navbar' %>
 
-    <%= yield :giant_image %>
- 
-  
-  <% if @page_options %>
-    <%= render 'layouts/subNavbar' %>
-  <% end %>
-
-  <div class="navbar-margin">
-    <% if flash[:notice] %>
-      <p class="secondary alert"><%= flash[:notice] %></p>
-    <% end %>
-
-    <% if flash[:alert] %>
-      <p class="danger alert"><%= flash[:alert] %></p>
-    <% end %>
-  </div>
+  <%= yield :giant_image %>
+<div class="counter-nav">
+  <%= render 'layouts/navbar' %>
 
 
-  </div>
+</div>
 	<%= yield %>
 
 </body>

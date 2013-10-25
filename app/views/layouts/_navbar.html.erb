@@ -15,9 +15,9 @@
 
 
   <% if user_signed_in? %>
-    <div class="six columns">
+    <div class="four columns float-right">
       <ul>
-        <li >
+        <li>
           <%= link_to current_user.email, user_path(current_user) %>
         </li>
         <li><span class="hide-on-mobile">|</span></li>
@@ -34,7 +34,7 @@
 
 
   <% else %>
-    <div class="push_five two columns">
+    <div class="two columns float-right">
       <ul>
         <li><%= link_to "Sign up", new_user_registration_path %></li>
         <li><%= link_to "Sign in", new_user_session_path %></li>

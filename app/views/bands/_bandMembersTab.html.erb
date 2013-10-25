@@ -3,7 +3,7 @@
     <div class="twelve_columns tab_field">
       <%= image_tag(m.profile_pic.url, class: "tab_field_pic") %>
 
-      <h4><%= link_to m.name, user_path(m.id) %></h4>
+      <h4><%= link_to m.name, public_user_path(m.id) %></h4>
       <p>Bands: 
         <%= members_bands(m) %>
       </p>

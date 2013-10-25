@@ -23,6 +23,9 @@ FAMOUS::Application.routes.draw do
   devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
   
   resources :users, only: :show
+  namespace :public do
+    resources :users, only: :show
+  end
   resources :venues
   resources :staticpages
 

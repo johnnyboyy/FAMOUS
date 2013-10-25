@@ -1,1 +1,30 @@
-<h1>Public User Page</h1>
+<div class="row">
+
+  <div class="three columns">
+    <%= image_tag(@user.profile_pic.url, class: "profile_pic") %>
+    <h3> <%= @user.first_name %> </h3>
+  </div>
+  
+  <div class="nine columns">
+    <div class="tab_container">
+      <section class="tabs">
+
+        <ul class="tab-nav">
+          <li class="tab active">
+            <a href="#" class="tab">Songs</a>
+          </li>
+          <li class="tab">
+            <a href="#" class="tab">Bands</a>
+          </li>
+          <div class="tab-content active">
+              <%= render 'songs/displaySongs' %>
+              <%= paginate @songs %>
+          </div>
+          <div class="tab-content">
+            <%= render 'bands/bandtab' %>
+          </div>
+        </ul>
+      </section>
+    </div>
+  </div>
+</div>

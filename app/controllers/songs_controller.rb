@@ -4,7 +4,7 @@ class SongsController < ApplicationController
 
 
 	def index
-		@songs = Song.all.order("fame DESC")
+		@songs = Song.all.order("fame DESC").page params[:page]
 	end
 
 	def new

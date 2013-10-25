@@ -1,9 +1,11 @@
 
 <% if user_signed_in? %>
-	<% if current_user.likes.map(&:song).include?(s) %>
-		<span class="small primary btn"><%= link_to 'unlike', unlike_song_path(s.id), method: :post, remote: true %></span>
-	<% else %>
-		<span class="small primary btn" ><%= link_to 'like', like_song_path(s.id), method: :post, remote: true %></span>
-	<% end %>
+  <% unless s.band.users.include?(current_user) %>
+  	<% if current_user.likes.map(&:song).include?(s) %>
+  		<span class="small primary btn"><%= link_to 'unlike', unlike_song_path(s.id), method: :post, remote: true %></span>
+  	<% else %>
+  		<span class="small primary btn" ><%= link_to 'like', like_song_path(s.id), method: :post, remote: true %></span>
+  	<% end %>
+  <% end %>
 <% end %>
 Fame: <%= s.fame %>

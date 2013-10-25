@@ -20,7 +20,11 @@
 
   <%= render 'layouts/navbar' %>
 
-  <div class="hide-on-desktop"><%= render 'layouts/subNavbarMobile' %></div>
+  <div class="hide-on-desktop">
+    <% if @page_options %>
+      <%= render 'layouts/subNavbarMobile' %>
+    <% end %>
+  </div>
   <div class="counter-nav"></div>
 
 

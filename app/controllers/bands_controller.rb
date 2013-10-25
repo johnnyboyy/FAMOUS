@@ -8,7 +8,7 @@ class BandsController < ApplicationController
 
   def show
 		@members = @band.users
-		@songs = @band.songs.order("fame DESC")
+		@songs = @band.songs.order("fame DESC").page params[:page]
     all_requests = Request.where(band_id: @band.id).where(status: 'pending').where(reciever: current_user)
     @band_requests = all_requests.where(request_type: 'member')
     @show_requests = all_requests.where(request_type: 'booking')

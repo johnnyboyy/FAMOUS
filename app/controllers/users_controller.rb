@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 	before_action :authenticate_user!
 
 	def show
-		@songs = current_user.songs
+		@songs = current_user.songs.page params[:page]
 		@bands = current_user.liked_bands
     @venues = current_user.venues
     @requests = current_user.sent_requests

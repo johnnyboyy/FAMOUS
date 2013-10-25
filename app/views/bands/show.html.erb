@@ -29,6 +29,7 @@
 			</ul>
 			<div class="tab-content active">
 	        <%= render 'songs/displaySongs' %>
+	        <%= paginate @songs %>
 	    </div>
 	    <div class="tab-content">
 	    	<%= render 'bands/bandMembersTab', members: @members %> 

@@ -37,6 +37,7 @@ class RequestsController < ApplicationController
 
     if @request.request_type == "member" && @band.users.include?(current_user)
       @band.users << User.find(@request.sender)
+      @request.sender.likes.where(band_id: @band.id).map(&:destroy)
       Request.where(status: "pending").where(sender: @request.sender).where(band_id: @request.band_id).where(request_type: "member").map(&:destroy)
     end
 

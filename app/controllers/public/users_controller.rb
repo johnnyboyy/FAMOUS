@@ -6,7 +6,7 @@ class Public::UsersController < ApplicationController
       redirect_to user_path(current_user)
     end
 
-    @songs = @user.songs.page params[:page]
+    @songs = @user.public_songs.page params[:page]
     @bands = @user.bands
   end
 

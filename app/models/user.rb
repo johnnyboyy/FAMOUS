@@ -90,4 +90,9 @@ class User < ActiveRecord::Base
     requests
   end
 
+
+  def public_songs
+    #songs by all bands the user is in, sorted by most famous
+    Song.where(band_id: self.bands.map(&:id)).order('fame DESC')
+  end
 end

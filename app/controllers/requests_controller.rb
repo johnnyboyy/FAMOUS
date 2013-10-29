@@ -37,7 +37,12 @@ class RequestsController < ApplicationController
 
     if @request.request_type == "member" && @band.users.include?(current_user)
       @band.users << User.find(@request.sender)
-      @request.sender.likes.where(band_id: @band.id).map(&:destroy)
+      # User.find(@request.sender).likes.where(band_id: @band.id).map(&:destroy)
+      User.find(@request.sender).likes.each do |l|
+        if @band.songs.map(&:id).include?(l.song_id)
+          l.destroy
+        end
+      end
       Request.where(status: "pending").where(sender: @request.sender).where(band_id: @request.band_id).where(request_type: "member").map(&:destroy)
     end
 
@@ -80,11 +85,11 @@ class RequestsController < ApplicationController
     def send_message_to_band_members(band)
       band.users.each do |mem|
         req = Request.new(request_params)
-        req.showtime = DateTime.strptime(params[:request][:showtime], format='%m/%e/%Y')
         req.status = 'pending'
         req.sender = current_user.id
         req.reciever = mem.id
         if req.request_type == "booking"
+          req.showtime = DateTime.strptime(params[:request][:showtime], format='%m/%e/%Y')
           req.message = req.booking_message
         end
         if req.save == false

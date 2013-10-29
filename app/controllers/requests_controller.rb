@@ -43,7 +43,7 @@ class RequestsController < ApplicationController
           l.destroy
         end
       end
-      Request.where(status: "pending").where(sender: @request.sender).where(band_id: @request.band_id).where(request_type: "member").map(&:destroy)
+    @band.pending_member_requests_by_id(@request).map(&:destroy)
     end
 
     if @request.request_type == "booking" && @band.users.include?(current_user)

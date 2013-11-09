@@ -19,6 +19,10 @@ class Band < ActiveRecord::Base
 		fame
 	end
 
+	def pending_requests
+		Request.where(band_id: self.id).where(status: "pending")
+	end
+
 	def update_bands_songs
 		unless self.songs.empty?
 			self.songs.each do |s|
@@ -27,6 +31,11 @@ class Band < ActiveRecord::Base
 			end
 		end
 	end
+
+	def pending_member_requests_by_obj(request_object)
+    req = request_object
+    Request.where(status: "pending").where(sender: req.sender).where(band_id: self.id).where(request_type: "member")
+  end
 
 
 end

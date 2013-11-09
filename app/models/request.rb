@@ -42,9 +42,6 @@ class Request < ActiveRecord::Base
     Band.find(self.band_id).name
   end
 
-  def pending_member_requests_by_id(request_object)
-    req = request_object
-    Request.where(status: "pending").where(sender: req.sender).where(band_id: self.id).where(request_type: "member")
-  end
+
   
 end

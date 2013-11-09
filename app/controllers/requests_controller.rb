@@ -1,9 +1,10 @@
 class RequestsController < ApplicationController
   before_action :authenticate_user!
+  before_action :get_band, only: [:new, :create]
+  before_action :get_request, only: :update
   
 
   def new
-    @band = Band.find(params[:band_id])
     @request = Request.new
     @request.request_type = params[:request_type]
     @request.band_id = params[:band_id]
@@ -16,7 +17,6 @@ class RequestsController < ApplicationController
 
 
   def create
-    @band = Band.find(request_params[:band_id])
     @request = Request.new(request_params)
     # @band.users.first.requests.map(&:sender).include?(current_user.id)
 
@@ -31,19 +31,26 @@ class RequestsController < ApplicationController
 
 
   def update
-    @request = Request.find(params[:request_id])
     @band = Band.find(@request.band_id)
 
 
     if @request.request_type == "member" && @band.users.include?(current_user)
       @band.users << User.find(@request.sender)
       # User.find(@request.sender).likes.where(band_id: @band.id).map(&:destroy)
+
+      ## TODO move to Model
       User.find(@request.sender).likes.each do |l|
         if @band.songs.map(&:id).include?(l.song_id)
           l.destroy
         end
       end
-    @band.pending_member_requests_by_id(@request).map(&:destroy)
+
+
+
+
+    @band.pending_member_requests_by_obj(@request).map(&:destroy)
+
+    if @band.
     end
 
     if @request.request_type == "booking" && @band.users.include?(current_user)
@@ -77,6 +84,14 @@ class RequestsController < ApplicationController
 
 
   private
+
+    def get_request
+      @request = Request.find(params[:request_id])
+    end
+
+    def get_band
+      @band = Band.find(params[:band_id])
+    end
 
     def request_params
       params.require(:request).permit(:message, :request_type, :band_id, :pay, :per, :location)

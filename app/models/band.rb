@@ -4,6 +4,7 @@ class Band < ActiveRecord::Base
 	has_many :users, through: :bands_users
 	has_many :songs, dependent: :destroy
 	has_many :genres, through: :songs
+	has_many :requests
 
 
 	validates_associated :songs

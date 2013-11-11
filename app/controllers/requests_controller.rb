@@ -19,8 +19,8 @@ class RequestsController < ApplicationController
   def create
     @request = Request.new(request_params)
     # @band.users.first.requests.map(&:sender).include?(current_user.id)
-
-    if send_message_to_band_members(@band)
+    # if send_message_to_band_members(@band)
+    if send_message_to_band(@band, @request)
       redirect_to current_user, notice: "Request has been sent."
     else
       flash.now[:alert] = "We couldn't send the request. Please try again."
@@ -36,7 +36,6 @@ class RequestsController < ApplicationController
 
     if @request.request_type == "member" && @band.users.include?(current_user)
       @band.users << User.find(@request.sender)
-      # User.find(@request.sender).likes.where(band_id: @band.id).map(&:destroy)
 
       ## TODO move to Model
       User.find(@request.sender).likes.each do |l|
@@ -44,14 +43,13 @@ class RequestsController < ApplicationController
           l.destroy
         end
       end
+      ####
 
 
 
 
     @band.pending_member_requests_by_obj(@request).map(&:destroy)
 
-    if @band.
-    end
 
     if @request.request_type == "booking" && @band.users.include?(current_user)
       Request.where(status: "pending").where(sender: @request.sender).where(band_id: @request.band_id).where(request_type: "booking").where(showtime: @request.showtime).each do |req|
@@ -103,6 +101,23 @@ class RequestsController < ApplicationController
         req.status = 'pending'
         req.sender = current_user.id
         req.reciever = mem.id
+        if req.request_type == "booking"
+          req.showtime = DateTime.strptime(params[:request][:showtime], format='%m/%e/%Y')
+          req.message = req.booking_message
+        end
+        if req.save == false
+          return false
+        end
+      end
+      return true
+    end
+
+    def send_message_to_band(band, request)
+      band.requests.build do |req|
+        req.request_type = requst.request_type
+        req.status = 'pending'
+        req.sender = current_user.id
+        req.reciever = band.id
         if req.request_type == "booking"
           req.showtime = DateTime.strptime(params[:request][:showtime], format='%m/%e/%Y')
           req.message = req.booking_message

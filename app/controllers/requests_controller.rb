@@ -48,7 +48,8 @@ class RequestsController < ApplicationController
 
 
 
-    @band.pending_member_requests_by_obj(@request).map(&:destroy)
+      @band.pending_member_requests_by_obj(@request).map(&:destroy)
+    end
 
 
     if @request.request_type == "booking" && @band.users.include?(current_user)
@@ -113,20 +114,18 @@ class RequestsController < ApplicationController
     end
 
     def send_message_to_band(band, request)
-      band.requests.build do |req|
-        req.request_type = requst.request_type
-        req.status = 'pending'
-        req.sender = current_user.id
-        req.reciever = band.id
-        if req.request_type == "booking"
-          req.showtime = DateTime.strptime(params[:request][:showtime], format='%m/%e/%Y')
-          req.message = req.booking_message
+        request.status = 'pending'
+        request.sender = current_user.id
+        request.reciever = band.id
+        if request.request_type == "booking"
+          request.showtime = DateTime.strptime(params[:request][:showtime], format='%m/%e/%Y')
+          request.message = request.booking_message
         end
-        if req.save == false
-          return false
-        end
+      if request.save == false
+        return false
+      else
+        return true
       end
-      return true
     end
       
 end

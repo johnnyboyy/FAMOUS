@@ -8,7 +8,7 @@ class BandsController < ApplicationController
   def show
 		@members = @band.users
 		@songs = @band.songs.order("fame DESC").page params[:page]
-    all_requests = Request.where(band_id: @band.id).where(status: 'pending').where(reciever: current_user)
+    all_requests = Request.where(reciever: @band.id).where(status: 'pending')
     @band_requests = all_requests.where(request_type: 'member')
     @show_requests = all_requests.where(request_type: 'booking')
     if user_signed_in?

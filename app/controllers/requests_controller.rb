@@ -31,41 +31,20 @@ class RequestsController < ApplicationController
 
 
   def update
+    #before_action get_request
     @band = Band.find(@request.band_id)
-
-
-    if @request.request_type == "member" && @band.users.include?(current_user)
-      @band.users << User.find(@request.sender)
-
-      ## TODO move to Model
-      User.find(@request.sender).likes.each do |l|
-        if @band.songs.map(&:id).include?(l.song_id)
-          l.destroy
-        end
-      end
-      ####
-
-
-
-
-      @band.pending_member_requests_by_obj(@request).map(&:destroy)
+    
+    if current_user.is_member_of?(@band)
+      @request.handle_request_for(@band)
     end
 
-
-    if @request.request_type == "booking" && @band.users.include?(current_user)
-      Request.where(status: "pending").where(sender: @request.sender).where(band_id: @request.band_id).where(request_type: "booking").where(showtime: @request.showtime).each do |req|
-        req.status = "accepted"
-        req.save
-      end
-    end
-
-    if @band.save
+    if @request.save
       redirect_to band_path(@band), notice: "Request from #{@request.requester_name} has been accepted!" 
     else
-      flash.now[:alert] = "We couldn't add #{requester_name(@request)}."
-      render band_path(@band)
+      flash.now[:alert] = "We couldn't add #{@request.requester_name}."
+      redirect_to band_path(@band)
     end
-
+  
   end
 
 

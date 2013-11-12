@@ -43,5 +43,22 @@ class Request < ActiveRecord::Base
   end
 
 
-  
+  def handle_request_for(band)
+    if self.request_type == "member"
+      band.users << User.find(self.sender)
+
+      User.find(self.sender).likes.each do |l|
+        if band.songs.map(&:id).include?(l.song_id)
+          l.destroy
+        end
+      end
+      self.status = "accepted"
+      band.save
+
+    elsif self.request_type == "booking"
+      self.status = "accepted"
+    end
+  end
+
+
 end

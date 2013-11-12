@@ -1,5 +1,5 @@
 <div class="row">
-  <% band_requests.each do |req| %>
+  <% @band_requests.each do |req| %>
     <div class="twelve_columns tab_field">              
       <h3><%= sender_name(req) %></h3>
       <p><%= link_to 'Accept', band_request_path(band_id: @band, request_id: req.id), method: :patch%></p>

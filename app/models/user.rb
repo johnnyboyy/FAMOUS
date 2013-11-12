@@ -95,4 +95,8 @@ class User < ActiveRecord::Base
     #songs by all bands the user is in, sorted by most famous
     Song.where(band_id: self.bands.map(&:id)).order('fame DESC')
   end
+
+  def is_member_of?(band)
+    band.users.include?(self)
+  end
 end
